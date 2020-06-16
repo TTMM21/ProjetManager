@@ -48,7 +48,7 @@ class Tasks {
 
 
   /**
-  * Gives the values to nom, description, date_de_debut, date_de_fin, id_projets, id_comptes
+  * Gives the values to nom, description, date_de_debut, date_de_fin, id_projets, id_comptes, id_avancements
   * @param Task $task
   * @param array $data
   * @return Task
@@ -56,10 +56,11 @@ class Tasks {
   public function hydrateTask (Task $task, array $data) {
     $task->setNameTask("$data[nom]");
     $task->setDescriptionTask("$data[description]");
-    $task->setStartTask(DateTimeImmutable::createFromFormat('Y-m-d', "$data[date_de_debut])->format('Y-m-d"));
-    $task->setEndTask(DateTimeImmutable::createFromFormat('Y-m-d', "$data[date_de_fin])->format('Y-m-d"));
+    $task->setStartTask(DateTimeImmutable::createFromFormat('Y-m-d', $data['date_de_debut'])->format('Y-m-d'));
+    $task->setEndTask(DateTimeImmutable::createFromFormat('Y-m-d', $data['date_de_fin'])->format('Y-m-d'));
     $task->setProjectTask("$data[id_projets]");
-    $task->setAccountTask("$data[id_compte]");
+    $task->setAccountTask("$data[id_comptes]");
+    $task->setStatusTask("$data[id_avancements]");
     return $task;
   }
 
@@ -72,14 +73,15 @@ class Tasks {
   * @throws Exception
   */
   public function createTask (Task $task): bool {
-    $statement = $this->pdo->prepare('INSERT INTO taches (nom, description, date_de_debut, date_de_fin, id_projets, id_comptes) VALUES (?, ?, ?, ?, ?, ?)');
+    $statement = $this->pdo->prepare('INSERT INTO taches (nom, description, date_de_debut, date_de_fin, id_projets, id_comptes, id_avancements) VALUES (?, ?, ?, ?, ?, ?, ?)');
     return $statement->execute([
       $task->getNameTask(),
       $task->getDescriptionTask(),
       $task->getStartTask()->format('Y-m-d'),
       $task->getEndTask()->format('Y-m-d'),
       $task->getProjectTask(),
-      $task->getAccountTask()
+      $task->getAccountTask(),
+      $task->getStatusTask()
     ]);
   }
 
@@ -92,7 +94,7 @@ class Tasks {
   * @throws Exception
   */
   public function updateTask (Task $task): bool {
-    $statement = $this->pdo->prepare('UPDATE taches SET nom=?, description=?, date_de_debut=?, date_de_fin=?, id_projets=?, id_comptes=? WHERE id_taches=?');
+    $statement = $this->pdo->prepare('UPDATE taches SET nom=?, description=?, date_de_debut=?, date_de_fin=?, id_projets=?, id_comptes=?, id_avancements=? WHERE id_taches=?');
     return $statement->execute([
       $task->getNameTask(),
       $task->getDescriptionTask(),
@@ -100,6 +102,7 @@ class Tasks {
       $task->getEndTask()->format('Y-m-d'),
       $task->getProjectTask(),
       $task->getAccountTask(),
+      $task->getStatusTask(),
       $task->getIdTask()
       ]);
   }

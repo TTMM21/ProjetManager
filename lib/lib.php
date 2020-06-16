@@ -32,14 +32,14 @@ function Connect(){
     $dbname = "projetmanager";
     $user = "BotWeb";
     $pass = "D5rxDm4gz1pFvF7R";
-    $connection = getMySQLConnect($host,$dbname,$user,$pass); 
+    $connection = getMySQLConnect($host,$dbname,$user,$pass);
     return $connection;
 }
 
 //Display erreor message function
 function ErreurMSG($MSG){
     session_start();
-    
+
     $MSG ='<div class="card text-white bg-warning mb-3" style="width: 18rem;">
                 <h5 >Error</h5>
                 <div>
@@ -50,7 +50,7 @@ function ErreurMSG($MSG){
     if(isset($_SESSION["email"]) && $_SESSION["status"] == 2){
         header('Location: ./Vue/Table_folder.php');
         exit();
-    
+
     }else{
     header('Location: ../Vue/login.php');
     exit();
@@ -60,7 +60,7 @@ function ErreurMSG($MSG){
 //Display valid message function
 function ValidMSG($MSG){
     session_start();
-    
+
     $MSG ='<div class="card text-white bg-success mb-3" style="width: 18rem;">
                 <h5 class="card-title">Success</h5>
                 <div class="card-body">
@@ -71,14 +71,12 @@ function ValidMSG($MSG){
     if(isset($_SESSION["email"]) && $_SESSION["status"] == 2){
         header('Location: ./Vue/Table_folder.php');
         exit();
-    
+
     }else{
     header('Location: ../Vue/Login.php');
     exit();
     }
 }
-
-
 
 //Add password Function
 function testurl($Setlogin) {
@@ -86,7 +84,7 @@ function testurl($Setlogin) {
     $dbname = "how2learn";
     $user = "root";
     $pass = "";
-    $connection = getMySQLConnect($host,$dbname,$user,$pass);                  
+    $connection = getMySQLConnect($host,$dbname,$user,$pass);
     $sql ="SELECT `id` FROM `account` WHERE `password`='".$Setlogin."'";
     $result = execQuery($connection,$sql);
     foreach ($result as $results){
@@ -95,7 +93,18 @@ function testurl($Setlogin) {
     return $id;
 }
 
+//Use to open the header and the footer on a page
+function render(string $view, $parameters =[]) {
+  extract($parameters);
+  include "../vue/{$view}.php";
+}
 
-
-
+//Give the value of a variable
+function dd(...$vars) {
+  foreach ($vars as $var) {
+    echo '<pre>';
+        var_dump($var);
+    echo '</pre>';
+  }
+}
 ?>

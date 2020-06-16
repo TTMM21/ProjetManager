@@ -40,4 +40,14 @@ function getAccountsListCtrl() {
   echo "</tbody>";
   echo "</table>";
 }
+
+/*Give the select of the employees, page addTask.php*/
+function getEmployeesListCtrl() {
+    $accounts = getEmployeesList();
+    echo "<select class='form-control' required name='id_comptes'>";
+    foreach ($accounts as $a) {
+        echo "<option value=".$a['id_compte'].">".$a['nom']." ".$a['prenom']."</option>";
+    }
+    echo "</select>";
+}
 ?>

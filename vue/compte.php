@@ -1,51 +1,68 @@
-<!DOCTYPE html> 
-<html lang="en">
-<html>
-<head>
-    <title>Login</title>
-
-    <!--Bootsrap 4 CDN-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-    <!--Fontawesome CDN-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-
-    <!--Custom styles-->
-    <link rel="stylesheet" type="text/css" href="../lib/styleAll.css">
-
-
-</head>
-<body>
 <?php
-        include "../lib/NavBar.php";
-    ?>
-    <div class="container" style="margin: 10% auto auto auto;">
-        <div class="card" style="background-color:rgba(0, 0, 20, 0.5);">
-            <div class="card-header" style="color: white;">
-                <h3>My Profile</h3>
-            </div>
+include "../lib/NavBar.php";
+include "../lib/lib.php";
 
-            <!-- Display user info -->
-            <div class="card-body">
-                <div style="margin: auto 10% auto 10%;">
-                    <ul class="list-group list-group-flush" style="border-radius: 10px;">
+if ($_SESSION['langues'] == "Français") {
+  render('header', ['title' => 'Concept&Co | Mon compte']);
+} else {
+  render('header', ['title' => 'Concept&Co | My account']);
+}
+?>
 
-                    //text
-                        <li class="list-group-item">E-Mail Adresse : <?php echo($_SESSION["mail"]);?></li>
-                        <li class="list-group-item">First Name : <?php echo($_SESSION["Prenom"]);?></li>
-                        <li class="list-group-item">last Name : <?php echo($_SESSION["Nom"]); ?></li>
-                        <li class="list-group-item">Type de compte : <?php echo($_SESSION["statuts"]); ?></li>
-                        <li class="list-group-item">langage : <?php echo($_SESSION["langues"]); ?></li>
+<div class="container" style="margin: 10% auto auto auto;">
+    <div class="card" style="background-color:rgba(0, 0, 20, 0.5);">
+        <div class="card-header" style="color: white;">
+          <?php if ($_SESSION["langues"] == "Français"): ?>
+            <h3>Mon profil</h3>
+          <?php endif; ?>
+          <?php if ($_SESSION["langues"] == "English"): ?>
+            <h3>My Profile</h3>
+          <?php endif; ?>
+        </div>
 
-                        <?php 
-                        if($_SESSION["malvoyant"] == 0 ){
-                            echo('<li class="list-group-item">compte malvoyant</li>');
+        <!-- Display user information -->
+        <div class="card-body">
+            <div style="margin: auto 10% auto 10%;">
+                <ul class="list-group list-group-flush" style="border-radius: 10px;">
+                  <?php if ($_SESSION["langues"] == "Français"): ?>
+                    <li class="list-group-item">Adresse mail : <?= $_SESSION["mail"] ?></li>
+                    <li class="list-group-item">Prénom : <?= $_SESSION["prenom"] ?></li>
+                    <li class="list-group-item">Nom : <?= $_SESSION["nom"]  ?></li>
+                    <li class="list-group-item">Type de compte : <?= $_SESSION["statuts"]  ?></li>
+                    <li class="list-group-item">Langue : <?= $_SESSION["langues"]  ?></li>
+                  <?php endif; ?>
+
+                  <?php if ($_SESSION["langues"] == "English"): ?>
+                    <li class="list-group-item">Email: <?= $_SESSION["mail"] ?></li>
+                    <li class="list-group-item">First Name: <?= $_SESSION["prenom"] ?></li>
+                    <li class="list-group-item">Last Name: <?= $_SESSION["nom"] ?></li>
+                    <li class="list-group-item">Account's status:
+                      <?php
+                        if ($_SESSION["statuts"] == "Administrateur") {
+                          echo "Administrator";
+                        } elseif ($_SESSION["statuts"] == "Utilisateur") {
+                          echo "User";
+                        } else {
+                          echo "Customer";
                         }
-                        ?>
-                    </ul>
-                </div>
+                      ?>
+                    </li>
+                    <li class="list-group-item">Language: <?= $_SESSION["langues"] ?></li>
+                  <?php endif; ?>
+
+
+
+                  <?php if($_SESSION["malvoyant"] == 1 && $_SESSION["langues"] == "Français"): ?>
+                      <li class="list-group-item">Spécificité du compte : adapté aux personnes malvoyantes</li>
+                  <?php endif; ?>
+
+                  <?php if($_SESSION["malvoyant"] == 1 && $_SESSION["langues"] == "English"): ?>
+                      <li class="list-group-item">Account's specific feature: appropriate for visually impaired person</li>
+                  <?php endif; ?>
+                </ul>
             </div>
         </div>
     </div>
-</body>
-</html>
+</div>
+
+<?php render('footer') ?>
