@@ -11,6 +11,21 @@ if ($_SESSION['langues'] == "Français") {
   render('header', ['title' => 'Concept&Co | Homepage']);
 }
 ?>
+<!--Display an alert if a projet has been added-->
+<?php if (isset($_GET['add'])): ?>
+    <div class="container">
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <?php if ($_SESSION["langues"] == "Français"): ?>
+              Le projet a été ajouté
+            <?php endif; ?>
+            <?php if ($_SESSION["langues"] == "English"): ?>
+              The project has been added
+            <?php endif; ?>
+        </div>
+    </div>
+<?php endif; ?>
+
 <div class="row" style="margin: 1% auto auto auto">
   <div class="col">
     <div class="card" style="background-color: rgba(0, 0, 20, 0.5)">

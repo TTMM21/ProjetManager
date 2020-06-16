@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $project = new Project();
     $project = $projects->hydrateProject(new Project(), $data);
     $projects->createProject($project);
-    header('Location: index.php');
+    header('Location: index.php?add=1');
     exit();
 }
 

@@ -33,6 +33,7 @@ $data=[
 
 render('header', ['title' => 'Concept&Co | '.$data["nom"].'']); //Gives the header
 ?>
+
 <!--Button which links to the page addTask.php-->
 <a href="addTask.php?id_projet=<?= $_GET['id_projet'] ?>" class="btnLien"  style="float: right; margin-right: 30px">
     <?php if ($_SESSION['langues'] == 'Français'): ?>
@@ -63,6 +64,38 @@ render('header', ['title' => 'Concept&Co | '.$data["nom"].'']); //Gives the head
 <?php endif; ?>
 </button>
 
+<!--Display an alert if a task has been added-->
+<?php if (isset($_GET['add'])): ?>
+    <br><br><br>
+    <div class="container">
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <?php if ($_SESSION["langues"] == "Français"): ?>
+                La tâche a été ajoutée
+            <?php endif; ?>
+            <?php if ($_SESSION["langues"] == "English"): ?>
+                The task has been added
+            <?php endif; ?>
+        </div>
+    </div>
+<?php endif; ?>
+
+
+<!--Display an alert if the projet has been modified-->
+<?php if (isset($_GET['modify'])): ?>
+    <br><br><br>
+    <div class="container">
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <?php if ($_SESSION["langues"] == "Français"): ?>
+              Le projet a été modifié
+            <?php endif; ?>
+            <?php if ($_SESSION["langues"] == "English"): ?>
+              The project has been modified
+            <?php endif; ?>
+        </div>
+    </div>
+<?php endif; ?>
 
 
 <!--Informations about the task-->

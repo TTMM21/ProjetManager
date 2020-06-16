@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $projects->hydrateProject($project, $data);
     $projects->updateProject($project);
-    header('Location: index.php');
+    header("Location: projet.php?modify=1&id_projet=".$_GET['id_projet']);
     exit();
 }
 
@@ -48,10 +48,10 @@ render('header', ['title' => 'Concept&Co | Modiication d\'un projet']); //Gives 
         <div class="card-header" style="color: white;">
             <h3>
                 <?php if ($_SESSION['langues'] == 'Français'): ?>
-                    Ajout d'un nouveau projet
+                    Modifier le projet
                 <?php endif; ?>
                 <?php if ($_SESSION['langues'] == 'English'): ?>
-                    Add a new project
+                    Modify the project
                 <?php endif; ?>
             </h3>
         </div>

@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $tasks->hydrateTask($task, $data);
     $tasks->updateTask($task);
-    header('Location: index.php');
+    header("Location: tache.php?modify=1&id_tache=".$_GET['id_tache']);
     exit();
 }
 
@@ -50,10 +50,10 @@ render('header', ['title' => 'Concept&Co | Modification d\'une tâche']); //Give
         <div class="card-header" style="color: white;">
             <h3>
                 <?php if ($_SESSION['langues'] == 'Français'): ?>
-                    Ajout d'une nouvelle tâche
+                    Modifier la tâche
                 <?php endif; ?>
                 <?php if ($_SESSION['langues'] == 'English'): ?>
-                    Add a new task
+                    Modify the task
                 <?php endif; ?>
             </h3>
         </div>

@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $task = new Task();
     $task = $tasks->hydrateTask(new Task(), $data);
     $tasks->createTask($task);
-    header('Location: index.php');
+    header("Location: projet.php?id_projet=<?= $_GET['id_projet'] &add=1?>");
     exit();
 }
 
