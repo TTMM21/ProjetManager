@@ -20,7 +20,7 @@ function getProjectsListCtrl($id_equipes) {
   foreach ($projects as $p) {
     echo "<tr>";
     echo "<td><a href='../vue/projet.php?id_projet=".$p['id_projets']."'>".$p['nom'].'</a></td>';
-    echo "<td><a href='../vue/projet.php?id_projet=".$p['id_projets']."'>".$p['date_de_fin'].'</a></td>';
+    echo "<td><a href='../vue/projet.php?id_projet=".$p['id_projets']."'>".date('d/m/Y', strtotime($p['date_de_fin'])).'</a></td>';
   }
   echo "</tbody>";
   echo "</table>";

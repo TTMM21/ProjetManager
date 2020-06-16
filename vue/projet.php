@@ -33,7 +33,7 @@ $data=[
 
 render('header', ['title' => 'Concept&Co | '.$data["nom"].'']); //Gives the header
 ?>
-<!--Button which links to the page addTasks.php-->
+<!--Button which links to the page addTask.php-->
 <a href="addTask.php?id_projet=<?= $_GET['id_projet'] ?>" class="btnLien"  style="float: right; margin-right: 30px">
     <?php if ($_SESSION['langues'] == 'Français'): ?>
         Ajout d'une tâche
@@ -43,7 +43,15 @@ render('header', ['title' => 'Concept&Co | '.$data["nom"].'']); //Gives the head
     <?php endif; ?>
 </a>
 
-
+<!--Button which links to the page modifyProject.php-->
+<a href="modifyProject.php?id_projet=<?= $_GET['id_projet'] ?>" class="btnLien"  style="float: right; margin-right: 30px">
+    <?php if ($_SESSION['langues'] == 'Français'): ?>
+        Modifier le projet
+    <?php endif; ?>
+    <?php if ($_SESSION['langues'] == 'English'): ?>
+        Modifiy the project
+    <?php endif; ?>
+</a>
 
 <!--Button which opens the modal-->
 <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#statusModal" title="Cliquer pour changer l'avancement du projet" style="float: right; margin-right: 30px">

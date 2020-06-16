@@ -23,7 +23,7 @@ function getTasksListCtrl($id_comptes) {
     echo "<tr>";
     echo "<td><a href='../vue/tache.php?id_tache=".$t['id_taches']."'>".$t['nom']."</a></td>";
     echo "<td><a href='../vue/tache.php?id_tache=".$t['id_taches']."'>".getProjectName($t['id_projets'])."</a></td>";
-    echo "<td><a href='../vue/tache.php?id_tache=".$t['id_taches']."'>".$t['date_de_fin']."</a></td>";
+    echo "<td><a href='../vue/tache.php?id_tache=".$t['id_taches']."'>".date('d/m/Y', strtotime($t['date_de_fin']))."</a></td>";
   }
   echo "</tbody>";
   echo "</table>";
