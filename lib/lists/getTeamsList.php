@@ -6,4 +6,12 @@ function getTeamsList($id) {
   $result = execQuery($connection, $req);
   return $result;
 }
+
+/*Give all the teams that we need*/
+function getTeamsNameList() {
+  $req = "SELECT * FROM equipes";
+  $connection = Connect();
+  $result = execQuery($connection, $req);
+  return $result;
+}
 ?>

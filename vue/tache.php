@@ -35,6 +35,16 @@ $data=[
 
 render('header', ['title' => 'Concept&Co | '.$data['nom'].'']); //Gives the header
 ?>
+<!--Button which links to the page deleteTask.php-->
+<a href="../controle/deleteTask.php?id_tache=<?= $_GET['id_tache'] ?>" class="btnLien"  style="float: right; margin-right: 30px">
+    <?php if ($_SESSION['langues'] == 'Français'): ?>
+        Supprimer la tâche
+    <?php endif; ?>
+    <?php if ($_SESSION['langues'] == 'English'): ?>
+        Delete the task
+    <?php endif; ?>
+</a>
+
 <!--Button which links to the page modifyTask.php-->
 <a href="modifyTask.php?id_tache=<?= $_GET['id_tache'] ?>" class="btnLien"  style="float: right; margin-right: 30px">
     <?php if ($_SESSION['langues'] == 'Français'): ?>

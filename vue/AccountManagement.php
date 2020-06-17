@@ -13,6 +13,15 @@ if ($_SESSION['langues'] == "Français") {
   render('header', ['title' => 'Concept&Co | Accounts\' management']);
 }
 ?>
+<!--Button which links to the page addUser.php-->
+<a href="addUser.php" class="btnLien"  style="float: right; margin-right: 30px">
+    <?php if ($_SESSION['langues'] == 'Français'): ?>
+        Ajouter un utilisateur
+    <?php endif; ?>
+    <?php if ($_SESSION['langues'] == 'English'): ?>
+        Add an user
+    <?php endif; ?>
+</a>
 
 <div class="container" style="margin: 10% auto auto auto">
   <div class="card" style="background-color: rgba(0, 0, 20, 0.5)">

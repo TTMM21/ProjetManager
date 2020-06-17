@@ -89,6 +89,14 @@ class User {
   }
 
   /**
+  * Obtain the user's password
+  * @return string
+  */
+  public function getPasswordUser() : string {
+    return $this->mdp;
+  }
+
+  /**
   * Obtain the boolean used to know if the user's account is activated or not
   * @return bool
   */
@@ -155,6 +163,14 @@ class User {
   }
 
   /**
+  * Define the user's password
+  * @param string $mdp
+  */
+  public function setPasswordUser (string $mdp) {
+    $this->mdp = $mdp;
+  }
+
+  /**
   * Define if the user's accounts is activated or not
   * @param bool $actif
   */
@@ -172,26 +188,26 @@ class User {
 
   /**
   * Define if the user's status
-  * @param bool $statuts
+  * @param int $id_statuts
   */
-  public function setStatusUser (bool $statuts) {
-    $this->statuts = $statuts;
+  public function setStatusUser (int $id_statuts) {
+    $this->id_statuts = $id_statuts;
   }
 
   /**
   * Define if the user's team
-  * @param bool $equipes
+  * @param int $id_equipes
   */
-  public function setTeamUser (bool $equipes) {
-    $this->equipes = $equipes;
+  public function setTeamUser (int $id_equipes) {
+    $this->id_equipes = $id_equipes;
   }
 
   /**
   * Define if the user's language
-  * @param bool $langues
+  * @param int $id_langues
   */
-  public function setLanguageUser (bool $langues) {
-    $this->langues = $langues;
+  public function setLanguageUser (int $id_langues) {
+    $this->id_langues = $id_langues;
   }
 }
 ?>

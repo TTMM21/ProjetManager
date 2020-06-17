@@ -18,4 +18,18 @@ function getTeamsListCtrl() {
     }
   }
 }
+
+/*Give the select for the teams, page modifUtilisateur.php*/
+function getTeamsNameListCtrl($id) {
+    $teams = getTeamsNameList();
+    echo "<select class='form-control' required name='id_equipes'>";
+    foreach ($teams as $t) {
+        if ($id === $t['id_equipes']) {
+            echo "<option value='".$t["id_equipes"]."' selected>".$t["nom"]."</option>";
+        } else {
+            echo "<option value='".$t["id_equipes"]."'>".$t["nom"]."</option>";
+        }
+    }
+    echo "</select>";
+}
 ?>

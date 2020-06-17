@@ -63,3 +63,39 @@ html,body {
 	position:relative;
 	top:1px;
 }
+
+/*Activate button*/
+.btnActif {
+	box-shadow: 0px 3px 4px 1px #d9d9d9;
+	background-color:#5cbf2a !important;
+  border-radius: 20px !important;
+	padding:16px 16px !important;
+}
+
+.btnActif:hover {
+	background-color:#47ab11 !important;
+  color: white;
+}
+
+.btnActif:active {
+	position:relative;
+	top:1px;
+}
+
+/*Desactivate button*/
+.btnInactif {
+	box-shadow: 0px 3px 4px 1px #d9d9d9;
+	background-color:#f44236 !important;
+	border-radius: 20px !important;
+	padding:16px 16px !important;
+}
+
+.btnInactif:hover {
+	background-color:#f50019 !important;
+  color: white;
+}
+
+.btnInactif:active {
+	position:relative;
+	top:1px;
+}

@@ -3,9 +3,9 @@ include "../lib/NavBar.php";
 include "../lib/lib.php";
 
 if ($_SESSION['langues'] == "Français") {
-  render('header', ['title' => 'Concept&Co | Mon compte']);
+  render('header', ['title' => 'Concept&Co | Profil utilisateur']);
 } else {
-  render('header', ['title' => 'Concept&Co | My account']);
+  render('header', ['title' => 'Concept&Co | User profile']);
 }
 ?>
 
@@ -13,10 +13,10 @@ if ($_SESSION['langues'] == "Français") {
     <div class="card" style="background-color:rgba(0, 0, 20, 0.5);">
         <div class="card-header" style="color: white;">
           <?php if ($_SESSION["langues"] == "Français"): ?>
-            <h3>Mon profil</h3>
+            <h3>Profil utilisateur</h3>
           <?php endif; ?>
           <?php if ($_SESSION["langues"] == "English"): ?>
-            <h3>My Profile</h3>
+            <h3>User profile</h3>
           <?php endif; ?>
         </div>
 

@@ -38,12 +38,12 @@ session_start();
 
 
       if(($_SESSION["statuts"] == "Administrateur" || $_SESSION["statuts"] == "Client" || $_SESSION["statuts"] == "Employé") && $_SESSION["langues"] == "Français"){
-        echo '<a class="nav-link" href="../vue/compte.php">Mon Compte</a>
+        echo '<a class="nav-link" href="../vue/monCompte.php?id_compte='.$_SESSION['id'].'">Mon Compte</a>
         <a class="nav-link" href="../controle/logout.php">Déconnexion</a>';
       }
 
       if(($_SESSION["statuts"] == "Administrateur" || $_SESSION["statuts"] == "Client" || $_SESSION["statuts"] == "Employé") && $_SESSION["langues"] == "English"){
-        echo '<a class="nav-link" href="../vue/compte.php">My account</a>
+        echo '<a class="nav-link" href="../vue/monCompte?id_compte=.php'.$_SESSION['id'].'">My account</a>
         <a class="nav-link" href="../controle/logout.php">Logout</a>';
       }
   }

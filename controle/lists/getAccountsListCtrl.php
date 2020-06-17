@@ -36,6 +36,13 @@ function getAccountsListCtrl() {
         echo "<td><a href='../controle/accountActivation.php?id_compte=".$a['id_compte']."' class='btn btnInactif' title='Activate the profile'></a></td>";
       }
     }
+    echo "<td><a href='../vue/modifUtilisateur.php?id_compte=".$a['id_compte']."' class='btnLien'>";
+        if ($_SESSION['langues'] == 'Français') {
+            echo "Modifier";
+        } elseif ($_SESSION['langues'] == 'English') {
+            echo "Modify";
+        }
+    echo "</a></td>";
   }
   echo "</tbody>";
   echo "</table>";
