@@ -48,7 +48,7 @@ function getAccountsListCtrl() {
   echo "</table>";
 }
 
-/*Give the select of the employees, page addTask.php*/
+/*Give the select of the employees (in the form), page addTask.php*/
 function getEmployeesListCtrl() {
     $accounts = getEmployeesList();
     echo "<select class='form-control' required name='id_comptes'>";

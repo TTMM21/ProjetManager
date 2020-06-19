@@ -59,6 +59,7 @@ function getTasksFinishedListCtrl($id_comptes) {
 }
 
 
+/*Give a project's name thanks to its id*/
 function getProjectName($id) {
   $req = "SELECT nom FROM projets WHERE id_projets = $id";
   $connection = Connect();

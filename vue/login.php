@@ -33,12 +33,13 @@ if ($langue == "Français") {
 
 
     <?php if ($langue == "Français"): ?>
-      <label id="LOGIN-LABEL" name="LOGIN-LABEL-MDP" >Mot de passe : </label>
+      <label id="LOGIN-LABEL" name="LOGIN-LABEL-MDP" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{8,}">Mot de passe : </label>
+      <input type="password" id="LOGIN-MDP" minlength="8" name="LOGIN-MDP" placeholder="Mot de passe" required="required" />
     <?php endif; ?>
     <?php if ($langue == "English"): ?>
-      <label id="LOGIN-LABEL" name="LOGIN-LABEL-MDP" >Password: </label>
+      <label id="LOGIN-LABEL" name="LOGIN-LABEL-MDP" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{8,}">Password: </label>
+      <input type="password" id="LOGIN-MDP" minlength="8" name="LOGIN-MDP" placeholder="password" required="required" title="Votre mot de passe doit contenir au moins : une minuscule, une majuscule, un nombre et un caractère spécial" />
     <?php endif; ?>
-    <input type="password" id="LOGIN-MDP" minlength="8" name="LOGIN-MDP" placeholder="password" required="required" />
 
 
     <?php if ($langue == "Français"): ?>

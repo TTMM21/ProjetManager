@@ -5,6 +5,7 @@ session_start();
 require '../lib/lib.php';
 require '../lib/avancementProjet.php';
 
+/*Permits to change the progress' status according to $_POST['avancement']*/
 switch ($_POST['avancement']) {
     case "en cours":
         projetEnCours();
@@ -17,6 +18,6 @@ switch ($_POST['avancement']) {
         break;
 }
 
-
+/*When the switch is done, open project.php*/
 header("Location: ../vue/projet.php?id_projet=".$_GET['id_projet']);
 ?>

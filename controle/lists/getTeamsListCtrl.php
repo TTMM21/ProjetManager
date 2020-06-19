@@ -19,7 +19,7 @@ function getTeamsListCtrl() {
   }
 }
 
-/*Give the select for the teams, page modifUtilisateur.php*/
+/*Give the select for the teams (in the form), page modifUtilisateur.php*/
 function getTeamsNameListCtrl($id) {
     $teams = getTeamsNameList();
     echo "<select class='form-control' required name='id_equipes'>";

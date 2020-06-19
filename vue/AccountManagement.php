@@ -23,6 +23,7 @@ if ($_SESSION['langues'] == "Français") {
     <?php endif; ?>
 </a>
 
+<!--Tab for the accounts' management-->
 <div class="container" style="margin: 10% auto auto auto">
   <div class="card" style="background-color: rgba(0, 0, 20, 0.5)">
     <div class="card-header" style="color: white">

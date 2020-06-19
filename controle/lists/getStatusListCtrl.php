@@ -1,7 +1,7 @@
 <?php
 include '../lib/lists/getStatutsList.php';
 
-/*Give the select for the status, page modifUtilisateur.php*/
+/*Give the select for the status (in the form), page modifUtilisateur.php*/
 function getStatutsListCtrl($id) {
     $status = getStatutsList();
     echo "<select class='form-control' required name='id_statuts'>";
