@@ -46,6 +46,11 @@ class Task {
    */
   public $id_comptes;
 
+  /**
+   * @var int
+   */
+  public $id_avancements;
+
 
 
   /**
@@ -106,6 +111,14 @@ class Task {
     return $this->id_comptes;
   }
 
+  /**
+  * Obtain the task's status
+  * @return int
+  */
+  public function getStatusTask() : int {
+    return $this->id_comptes;
+  }
+
 
 
   /**
@@ -154,6 +167,14 @@ class Task {
   */
   public function setAccountTask (int $id_comptes) {
     $this->id_comptes = $id_comptes;
+  }
+
+  /**
+  * Define the task's status
+  * @param int $id_avancements
+  */
+  public function setStatusTask (int $id_avancements) {
+    $this->id_avancements = $id_avancements;
   }
 }
 ?>
