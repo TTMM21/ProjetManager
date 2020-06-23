@@ -1,50 +1,51 @@
 <?php
 session_start();
 ?>
-<!-- display navbar and global options -->
+<!-- display navbar and global option -->
+<meta charset="utf-8" />
+
+
 <nav id="nav">
     <a href="#">
-      <img id="LOGIN-LOGO" src="../lib/header.png" alt="Concept&Co">
+      <img id="navbar-img" src="../lib/header.png" alt="Concept&Co">
     </a>
 
 <?php
   if(isset($_SESSION["statuts"])){
       if(($_SESSION["statuts"] == "Administrateur" || $_SESSION["statuts"] == "Client" || $_SESSION["statuts"] == "Employé") && $_SESSION["langues"] == "Français"){
-          echo '<a class="nav-link" href="../vue/index.php">Accueil</a>';
+          echo '<a class="nav-link" href="../vue/index.php" id="navbar-lien">Accueil</a>';
         }
 
       if(($_SESSION["statuts"] == "Administrateur" || $_SESSION["statuts"] == "Client" || $_SESSION["statuts"] == "Employé") && $_SESSION["langues"] == "English"){
-          echo '<a class="nav-link" href="../vue/Menu.php">Homepage</a>';
+          echo '<a class="nav-link" href="../vue/Menu.php" id="navbar-lien">Homepage</a>';
       }
 
 
 
       if($_SESSION["statuts"] == "Administrateur" && $_SESSION["langues"] == "Français"){
-        echo '<a class="nav-link" href="../vue/addProject.php">Ajouter un projet</a>
-        <a class="nav-link" href="../vue/projectsFinished.php">Historique des projets</a>
-        <a class="nav-link" href="../vue/tasksFinished.php">Historique des tâches</a>
-        <a class="nav-link" href="../vue/TeamManagement.php">Gestion des équipes</a>
-        <a class="nav-link" href="../vue/AccountManagement.php">Gestion des utilisateurs</a>';
+        echo '<a class="nav-link" href="../vue/projectsFinished.php" id="navbar-lien">Historique des projets</a>
+        <a class="nav-link" href="../vue/tasksFinished.php" id="navbar-lien">Historique des tâches</a>
+        <a class="nav-link" href="../vue/TeamManagement.php" id="navbar-lien">Gestion des équipes</a>
+        <a class="nav-link" href="../vue/AccountManagement.php" id="navbar-lien">Gestion des utilisateurs</a>';
       }
 
       if($_SESSION["statuts"] == "Administrateur" && $_SESSION["langues"] == "English"){
-          echo '<a class="nav-link" href="../vue/addProject.php">Add a new project</a>
-          <a class="nav-link" href="../vue/projectsFinished.php">Projects\' archive</a>
-          <a class="nav-link" href="../vue/tasksFinished.php">Tasks\' archive</a>
-          <a class="nav-link" href="../vue/TeamManagement.php">Teams\' management</a>
-          <a class="nav-link" href="../vue/AccountsManagement.php">Accounts\' management</a>';
+          echo '<a class="nav-link" href="../vue/projectsFinished.php" id="navbar-lien">Projects\' archive</a>
+          <a class="nav-link" href="../vue/tasksFinished.php" id="navbar-lien">Tasks\' archive</a>
+          <a class="nav-link" href="../vue/TeamManagement.php" id="navbar-lien">Teams\' management</a>
+          <a class="nav-link" href="../vue/AccountsManagement.php" id="navbar-lien">Accounts\' management</a>';
       }
 
 
 
       if(($_SESSION["statuts"] == "Administrateur" || $_SESSION["statuts"] == "Client" || $_SESSION["statuts"] == "Employé") && $_SESSION["langues"] == "Français"){
-        echo '<a class="nav-link" href="../vue/monCompte.php?id_compte='.$_SESSION['id'].'">Mon Compte</a>
-        <a class="nav-link" href="../controle/logout.php">Déconnexion</a>';
+        echo '<a class="nav-link" href="../vue/compte.php" id="navbar-lien">Mon Compte</a>
+        <a class="nav-link" href="../controle/logout.php" id="navbar-lien">Déconnexion</a>';
       }
 
       if(($_SESSION["statuts"] == "Administrateur" || $_SESSION["statuts"] == "Client" || $_SESSION["statuts"] == "Employé") && $_SESSION["langues"] == "English"){
-        echo '<a class="nav-link" href="../vue/monCompte?id_compte=.php'.$_SESSION['id'].'">My account</a>
-        <a class="nav-link" href="../controle/logout.php">Logout</a>';
+        echo '<a class="nav-link" href="../vue/compte.php" id="navbar-lien">My account</a>
+        <a class="nav-link" href="../controle/logout.php" id="navbar-lien">Logout</a>';
       }
   }
 

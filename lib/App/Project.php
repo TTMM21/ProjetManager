@@ -41,11 +41,6 @@ class Project {
    */
   public $id_equipes;
 
-  /**
-   * @var int
-   */
-  public $id_avancements;
-
 
 
   /**
@@ -98,14 +93,6 @@ class Project {
     return $this->id_equipes;
   }
 
-  /**
-  * Obtain the status of the project
-  * @return int
-  */
-  public function getStatusProject() : int {
-    return $this->id_avancements;
-  }
-
 
 
   /**
@@ -146,14 +133,6 @@ class Project {
   */
   public function setTeamProject (int $id_equipes) {
     $this->id_equipes = $id_equipes;
-  }
-
-  /**
-  * Define the status of the project
-  * @param int $id_avancements
-  */
-  public function setStatusProject (int $id_avancements) {
-    $this->id_avancements = $id_avancements;
   }
 }
 ?>

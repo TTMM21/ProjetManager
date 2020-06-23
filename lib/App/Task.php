@@ -46,12 +46,6 @@ class Task {
    */
   public $id_comptes;
 
-  /**
-   * @var int
-   */
-  public $id_avancements;
-
-
 
 
   /**
@@ -112,14 +106,6 @@ class Task {
     return $this->id_comptes;
   }
 
-  /**
-  * Obtain the status of the task
-  * @return int
-  */
-  public function getStatusTask() : int {
-    return $this->id_avancements;
-  }
-
 
 
   /**
@@ -134,7 +120,7 @@ class Task {
   * Define the task's description
   * @param string $description
   */
-  public function setDescriptionTask (string $description) {
+  public function setDescTask (string $description) {
     $this->description = $description;
   }
 
@@ -168,14 +154,6 @@ class Task {
   */
   public function setAccountTask (int $id_comptes) {
     $this->id_comptes = $id_comptes;
-  }
-
-  /**
-  * Define the status of the task
-  * @param int $id_avancements
-  */
-  public function setStatusTask (int $id_avancements) {
-    $this->id_avancements = $id_avancements;
   }
 }
 ?>

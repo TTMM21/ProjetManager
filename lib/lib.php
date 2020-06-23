@@ -30,8 +30,8 @@ function execQuery($connection, $sqlString){
 function Connect(){
     $host = "127.0.0.1";
     $dbname = "projetmanager";
-    $user = "BotWeb";
-    $pass = "D5rxDm4gz1pFvF7R";
+    $user = "root";
+    $pass = "";
     $connection = getMySQLConnect($host,$dbname,$user,$pass);
     return $connection;
 }

@@ -21,33 +21,37 @@ if ($langue == "Français") {
   <?php endif; ?>
 
   <hr id="LOGIN-LINE">
-
+  <br id="login-br-2"/>
   <form method="POST" action="../Controle/Login.php">
     <?php if ($langue == "Français"): ?>
       <label id="LOGIN-LABEL" name="LOGIN-LABEL-MAIL" >Adresse mail : </label>
+      <input type="mail" id="LOGIN-MAIL" name="LOGIN-MAIL" placeholder="Adresse mail" required="required" />
     <?php endif; ?>
     <?php if ($langue == "English"): ?>
       <label id="LOGIN-LABEL" name="LOGIN-LABEL-MAIL" >Email: </label>
+      <input type="mail" id="LOGIN-MAIL" name="LOGIN-MAIL" placeholder="E-mail" required="required" />
     <?php endif; ?>
-    <input type="mail" id="LOGIN-MAIL" name="LOGIN-MAIL" placeholder="E-mail" required="required" />
+    
 
-
+    <br id="login-br"/>
     <?php if ($langue == "Français"): ?>
-      <label id="LOGIN-LABEL" name="LOGIN-LABEL-MDP" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{8,}">Mot de passe : </label>
-      <input type="password" id="LOGIN-MDP" minlength="8" name="LOGIN-MDP" placeholder="Mot de passe" required="required" />
+      <label id="LOGIN-LABEL" name="LOGIN-LABEL-MDP" >Mot de passe : </label>
+      <input type="password" id="LOGIN-MDP" minlength="8" name="LOGIN-MDP" placeholder="Mots de passe" required="required" />
     <?php endif; ?>
     <?php if ($langue == "English"): ?>
-      <label id="LOGIN-LABEL" name="LOGIN-LABEL-MDP" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{8,}">Password: </label>
-      <input type="password" id="LOGIN-MDP" minlength="8" name="LOGIN-MDP" placeholder="password" required="required" title="Votre mot de passe doit contenir au moins : une minuscule, une majuscule, un nombre et un caractère spécial" />
+      <label id="LOGIN-LABEL" name="LOGIN-LABEL-MDP" >Password: </label>
+      <input type="password" id="LOGIN-MDP" minlength="8" name="LOGIN-MDP" placeholder="password" required="required" />
     <?php endif; ?>
-
-
+    
+    <br id="login-br"/>
     <?php if ($langue == "Français"): ?>
-      <a href="../vue/SetLogin.php">Mot de passe oublié ?</a>
+      <a href="../vue/SetLogin.php" id="login-lien">Mot de passe oublié ?</a>
+      <br id="login-br"/>
       <input type="submit" value="Se connecter">
     <?php endif; ?>
     <?php if ($langue == "English"): ?>
-      <a href="../vue/SetLogin.php">Forgotten password ?</a>
+      <a href="../vue/SetLogin.php" id="login-lien">Forgotten password ?</a>
+      <br id="login-br"/>
       <input type="submit" value="Login">
     <?php endif; ?>
   </form>
