@@ -1,11 +1,11 @@
 <?php
 function getTeam($name) {
-  $req = "SELECT * FROM equipes WHERE nom = '$name'";
-
   $connection = Connect();
-  $resultTeam = execQuery($connection, $req);
-  
-  foreach ($resultTeam as $rT) {
+  $sth = $connection->prepare("SELECT * FROM equipes WHERE nom = '$name'");
+  $sth->execute();
+  $result = $sth->fetchAll(\PDO::FETCH_ASSOC);
+
+  foreach ($result as $rT) {
       $id = $rT['id_equipes'];
   }
   return $id;
