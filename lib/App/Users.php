@@ -73,7 +73,7 @@ class Users {
   * @throws Exception
   */
   public function createUser (User $user): bool {
-    $statement = $this->pdo->prepare('INSERT INTO comptes (nom, prenom, email, mdp, actif, malvoyant, id_statuts, id_equipes, id_langues) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
+    $statement = $this->pdo->prepare('INSERT INTO comptes (nom, prenom, email, mdp, actif, malvoyant, id_statuts, id_equipes, id_langues) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)');
     return $statement->execute([
       $user->getLastNameUser(),
       $user->getFirstNameUser(),
@@ -98,7 +98,7 @@ class Users {
   public function updateUser (User $user): bool {
     $statement = $this->pdo->prepare('UPDATE comptes SET nom=?, prenom=?, email=?, mdp=?, actif=?, malvoyant=?, id_statuts=?, id_equipes=?, id_langues=? WHERE id_comptes=?');
     return $statement->execute([
-      $user->getNameUser(),
+      $user->getLastNameUser(),
       $user->getFirstNameUser(),
       $user->getEmailUser(),
       $user->getPasswordUser(),

@@ -13,7 +13,7 @@ function getTeamsListCtrl() {
     foreach ($TeamsNames as $TeamName) {
       $name = $TeamName['nom'];
     }
-      
+
     if ($_SESSION['langues'] == "Français") {
       echo "<li class='list-group-item' style='background-color: #ededed'><a href='../vue/TeamManagementAdd.php?Team=".$name."' id='tableau_button'>Equipe: ".$name."</a></li>";
     } else {
@@ -28,7 +28,7 @@ function getTeamsListCtrl() {
 
 /*Give the select for the teams (in the form), page modifUtilisateur.php + addUser.php*/
 function getTeamsNameListCtrl($id) {
-  $team = getTeamsListUser($id);
+  $team = getTeamsListUser();
   echo "<select class='form-control' required name='id_equipes'>";
   foreach ($team as $t) {
       if ($id === $t['id_equipes']) {

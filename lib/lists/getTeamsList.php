@@ -28,8 +28,8 @@ function getTeamsList($id) {
   return $result;
 }
 
-function getTeamsListUser($id) {
-  $req = "SELECT nom FROM equipes";
+function getTeamsListUser() {
+  $req = "SELECT * FROM equipes";
   $connection = Connect();
   $result = execQuery($connection, $req);
 
