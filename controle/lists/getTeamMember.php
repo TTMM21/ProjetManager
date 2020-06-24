@@ -12,7 +12,6 @@ function getTeamsListMemberCrl($name) {
             echo "<option value='".$TeamsMember['id_compte']."'>".$TeamsMember['nom']." ".$TeamsMember['prenom']."</option>";
         }
         echo '</select>';
-        
     }else{
         echo 'NULL';
     }
