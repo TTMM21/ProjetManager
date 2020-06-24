@@ -33,9 +33,11 @@ if ($_SESSION['langues'] == "Français") {
         //nom de l'equipe
         // + membre
         // - membre
-        <form action="action.php" method="post">
-            <p>Team name add: <input type="text" name="TeamName" /></p>
+        <form action="../controle/equipeMemberAdd.php?Team=<?=$TeamName?>" method="post">
+            <p>Team name add: <input type="text" name="TeamNameAdd"/></p>
+
             <p>Team member add: <?php getTeamsListNotMemberCrl($TeamName); ?></p>
+
             <p>Team member remouv: <?php getTeamsListMemberCrl($TeamName); ?></p>
         </form>
       </div>
