@@ -10,7 +10,7 @@ function getTeamsListMemberCrl($name) {
         foreach ($TeamsMemberList as $TeamsMember) {
             echo "<option value='".$TeamsMember['id_compte']."'>".$TeamsMember['nom']." ".$TeamsMember['prenom']."</option>";
         }
-        echo '</select>  <input type="submit" value="OK">';
+        echo '</select>';
         
     }else{
         echo 'NULL';
@@ -26,7 +26,7 @@ function getTeamsListNotMemberCrl($name) {
         foreach ($TeamsMemberList as $TeamsMember) {
             echo "<option value='".$TeamsMember['id_compte']."'>".$TeamsMember['nom']." ".$TeamsMember['prenom']."</option>";
         }
-        echo '</select>  <input type="submit" value="OK">';
+        echo '</select>';
         
     }else{
         echo 'NULL';

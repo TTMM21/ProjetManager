@@ -39,6 +39,7 @@ if ($_SESSION['langues'] == "Français") {
             <p>Team member add: <?php getTeamsListNotMemberCrl($TeamName); ?></p>
 
             <p>Team member remouv: <?php getTeamsListMemberCrl($TeamName); ?></p>
+            <input type="submit" value="OK">
         </form>
       </div>
     </div>
