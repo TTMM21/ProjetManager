@@ -25,7 +25,6 @@ function getTeamsListNotMemberCrl($name) {
     if($TeamsMemberList != null){
         echo "<select name='TeamMemebreAdd'>";
         echo "<option value='NULL'>selection vide</option>";
-
         foreach ($TeamsMemberList as $TeamsMember) {
             echo "<option value='".$TeamsMember['id_compte']."'>".$TeamsMember['nom']." ".$TeamsMember['prenom']."</option>";
         }

@@ -30,7 +30,6 @@ if ($_SESSION['langues'] == "Français") {
 
     <div class="card-body">
       <div style="margin: auto 10% auto 10%">
-
         <form action="../controle/equipeMemberAdd.php?Team=<?=$TeamName?>" method="post">
             <p>Team name add: <input type="text" name="TeamNameAdd"/></p>
 
