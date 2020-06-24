@@ -5,8 +5,10 @@
 include "../lib/NavBar.php";
 include "../lib/lib.php";
 include '../controle/lists/getTeamMember.php';
+include '../lib/lists/getMemberListTeam.php';
 
-$TeamName = $_GET['Team'];
+$TeamID = $_GET['Team'];
+$TeamName = getTeamName($TeamID);
 
 
 //Put the correct header according to the user's language
@@ -30,12 +32,12 @@ if ($_SESSION['langues'] == "Français") {
 
     <div class="card-body">
       <div style="margin: auto 10% auto 10%">
-        <form action="../controle/equipeMemberAdd.php?Team=<?=$TeamName?>" method="post">
+        <form action="../controle/equipeMemberAdd.php?Team=<?=$TeamID?>" method="post">
             <p>Team name add: <input type="text" name="TeamNameAdd"/></p>
 
-            <p>Team member add: <?php getTeamsListNotMemberCrl($TeamName); ?></p>
+            <p>Team member add: <?php getTeamsListNotMemberCrl($TeamID); ?></p>
 
-            <p>Team member remouv: <?php getTeamsListMemberCrl($TeamName); ?></p>
+            <p>Team member remouv: <?php getTeamsListMemberCrl($TeamID); ?></p>
             <input type="submit" value="OK">
         </form>
       </div>

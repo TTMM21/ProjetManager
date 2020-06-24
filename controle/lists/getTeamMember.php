@@ -1,5 +1,5 @@
 <?php
-include '../lib/lists/getMemberListTeam.php';
+//include '../lib/lists/getMemberListTeam.php';
 
 /*Give the accounts in the tab, page TeamManagement.php*/
 function getTeamsListMemberCrl($name) {
