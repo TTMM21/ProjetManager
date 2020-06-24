@@ -29,5 +29,5 @@ if(isset($_POST['TeamMemebreRemov']) && $_POST['TeamMemebreRemov'] != "NULL"){
     execQuery($pdo, $sql);
 }
 
-header("Location: ../vue/TeamManagementAdd.php?Team=$TeamName");
+header("Location: ../vue/TeamManagement.php");
 ?>
