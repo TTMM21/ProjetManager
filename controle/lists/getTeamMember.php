@@ -20,8 +20,7 @@ function getTeamsListMemberCrl($name) {
 
 function getTeamsListNotMemberCrl($name) {
     $TeamsMemberList = getTeamsNotMemberList($name);
-
-    if($TeamsMemberList != null){
+    if($TeamsMemberList != NULL){
         echo "<select name='TeamMemebreAdd'>";
         echo "<option value='NULL'>selection vide</option>";
         foreach ($TeamsMemberList as $TeamsMember) {

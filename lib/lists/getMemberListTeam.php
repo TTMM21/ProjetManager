@@ -24,7 +24,7 @@ function getTeamsMemberList($name){
 function getTeamsNotMemberList($name){
   $id = getTeam($name);
   $connection = Connect();
-  $sth = $connection->prepare("SELECT * FROM comptes WHERE id_equipes = NULL");
+  $sth = $connection->prepare("SELECT * FROM comptes WHERE id_equipes IS NULL");
   $sth->execute();
   $result = $sth->fetchAll(\PDO::FETCH_ASSOC);
 
