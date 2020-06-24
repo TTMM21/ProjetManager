@@ -46,7 +46,7 @@ class Users {
 
 
   /**
-  * Gives the values to nom, prenom, email, actif, malvoyant, $id_statuts, $id_equipes, $id_langues
+  * Gives the values to nom, prenom, email, mdp, actif, malvoyant, $id_statuts, $id_equipes, $id_langues
   * @param User $user
   * @param array $data
   * @return User
@@ -55,6 +55,7 @@ class Users {
     $user->setLastNameUser("$data[nom]");
     $user->setFirstNameUser("$data[prenom]");
     $user->setEmailUser("$data[email]");
+    $user->setPasswordUser("$data[mdp]");
     $user->setActivateUser("$data[actif]");
     $user->setVisionUser("$data[malvoyant]");
     $user->setStatusUser("$data[id_statuts]");
@@ -72,11 +73,12 @@ class Users {
   * @throws Exception
   */
   public function createUser (User $user): bool {
-    $statement = $this->pdo->prepare('INSERT INTO comptes (nom, prenom, email, actif, malvoyant, $id_statuts, $id_equipes, $id_langues) VALUES (?, ?, ?, ?, ?, ?, ?)');
+    $statement = $this->pdo->prepare('INSERT INTO comptes (nom, prenom, email, mdp, actif, malvoyant, id_statuts, id_equipes, id_langues) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
     return $statement->execute([
       $user->getLastNameUser(),
       $user->getFirstNameUser(),
       $user->getEmailUser(),
+      $user->getPasswordUser(),
       $user->getActivateUser(),
       $user->getVisionUser(),
       $user->getStatusUser(),
@@ -94,12 +96,13 @@ class Users {
   * @throws Exception
   */
   public function updateUser (User $user): bool {
-    $statement = $this->pdo->prepare('UPDATE comptes SET nom=?, prenom=?, email=?, actif=?, malvoyant=?, $id_statuts=?, $id_equipes=?, $id_langues=? WHERE id_comptes=?');
+    $statement = $this->pdo->prepare('UPDATE comptes SET nom=?, prenom=?, email=?, mdp=?, actif=?, malvoyant=?, id_statuts=?, id_equipes=?, id_langues=? WHERE id_comptes=?');
     return $statement->execute([
       $user->getNameUser(),
       $user->getFirstNameUser(),
-      $user->getEmailUser()->format('Y-m-d'),
-      $user->getActivateUser()->format('Y-m-d'),
+      $user->getEmailUser(),
+      $user->getPasswordUser(),
+      $user->getActivateUser(),
       $user->getVisionUser(),
       $user->getStatusUser(),
       $user->getTeamUser(),

@@ -30,6 +30,11 @@ class User {
   public $email;
 
   /**
+   * @var string
+   */
+  public $mdp;
+
+  /**
    * @var bool
    */
   public $actif;
@@ -86,6 +91,14 @@ class User {
   */
   public function getEmailUser() : string {
     return $this->email;
+  }
+
+  /**
+  * Obtain the user's password
+  * @return string
+  */
+  public function getPasswordUser() : string {
+    return $this->mdp;
   }
 
   /**
@@ -152,6 +165,14 @@ class User {
   */
   public function setEmailUser (string $email) {
     $this->email = $email;
+  }
+
+  /**
+  * Define the user's password
+  * @param string $mdp
+  */
+  public function setPasswordUser (string $mdp) {
+    $this->mdp = $mdp;
   }
 
   /**
