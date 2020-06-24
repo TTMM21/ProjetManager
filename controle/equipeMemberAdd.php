@@ -9,7 +9,7 @@ if(isset($_POST['TeamNameAdd']) && $_POST['TeamNameAdd'] != NULL  && $_POST['Tea
     $pdo = Connect();
     $TeamNameAdd = $_POST['TeamNameAdd'];
 
-    if($TestName == NULL){
+    if($TestName != NULL){
         $sql = "UPDATE equipes SET nom = '".$TeamNameAdd."' WHERE id_equipes='".$TeamID."';";
         execQuery($pdo, $sql);
         $TeamName = $TeamNameAdd;
