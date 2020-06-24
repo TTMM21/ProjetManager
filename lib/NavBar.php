@@ -17,7 +17,7 @@ session_start();
         }
 
       if(($_SESSION["statuts"] == "Administrateur" || $_SESSION["statuts"] == "Client" || $_SESSION["statuts"] == "Employé") && $_SESSION["langues"] == "English"){
-          echo '<a class="nav-link" href="../vue/Menu.php" id="navbar-lien">Homepage</a>';
+          echo '<a class="nav-link" href="../vue/index.php" id="navbar-lien">Homepage</a>';
       }
 
 
@@ -33,18 +33,18 @@ session_start();
           echo '<a class="nav-link" href="../vue/projectsFinished.php" id="navbar-lien">Projects\' archive</a>
           <a class="nav-link" href="../vue/tasksFinished.php" id="navbar-lien">Tasks\' archive</a>
           <a class="nav-link" href="../vue/TeamManagement.php" id="navbar-lien">Teams\' management</a>
-          <a class="nav-link" href="../vue/AccountsManagement.php" id="navbar-lien">Accounts\' management</a>';
+          <a class="nav-link" href="../vue/AccountManagement.php" id="navbar-lien">Accounts\' management</a>';
       }
 
 
 
       if(($_SESSION["statuts"] == "Administrateur" || $_SESSION["statuts"] == "Client" || $_SESSION["statuts"] == "Employé") && $_SESSION["langues"] == "Français"){
-        echo '<a class="nav-link" href="../vue/compte.php" id="navbar-lien">Mon Compte</a>
+        echo '<a class="nav-link" href="../vue/monCompte.php" id="navbar-lien">Mon Compte</a>
         <a class="nav-link" href="../controle/logout.php" id="navbar-lien">Déconnexion</a>';
       }
 
       if(($_SESSION["statuts"] == "Administrateur" || $_SESSION["statuts"] == "Client" || $_SESSION["statuts"] == "Employé") && $_SESSION["langues"] == "English"){
-        echo '<a class="nav-link" href="../vue/compte.php" id="navbar-lien">My account</a>
+        echo '<a class="nav-link" href="../vue/monCompte.php" id="navbar-lien">My account</a>
         <a class="nav-link" href="../controle/logout.php" id="navbar-lien">Logout</a>';
       }
   }
