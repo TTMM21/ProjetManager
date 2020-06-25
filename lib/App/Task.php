@@ -133,7 +133,7 @@ class Task {
   * Define the task's description
   * @param string $description
   */
-  public function setDescriptionTask (string $description) {
+  public function setDescTask (string $description) {
     $this->description = $description;
   }
 

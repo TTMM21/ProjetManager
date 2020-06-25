@@ -4,6 +4,11 @@ include '../lib/lists/getAccountsList.php';
 /*Give the accounts in the tab, page AccountManagement.php*/
 function getAccountsListCtrl() {
   $accounts = getAccountsList();
+  if ($_SESSION['malvoyant'] == "1") {
+    $malvoyant = "id ='lien-malvoyant'";
+  }else{
+    $malvoyant = "id ='lien'";
+  }  
   echo "<table class='table table-striped table-hover' style='background-color: white'>";
   echo "<thead>";
   echo "<tr>";
@@ -21,22 +26,22 @@ function getAccountsListCtrl() {
   echo "<tbody>";
   foreach ($accounts as $a) {
     echo "<tr>";
-    echo "<td><a href='../vue/utilisateur.php?id_compte=".$a['id_compte']."'>".$a['nom'].'</a></td>';
-    echo "<td><a href='../vue/utilisateur.php?id_compte=".$a['id_compte']."'>".$a['prenom'].'</a></td>';
+    echo "<td><a ".$malvoyant." href='../vue/utilisateur.php?id_compte=".$a['id_compte']."'>".$a['nom'].'</a></td>';
+    echo "<td><a ".$malvoyant." href='../vue/utilisateur.php?id_compte=".$a['id_compte']."'>".$a['prenom'].'</a></td>';
     if ($a['actif'] === 1) {
       if ($_SESSION['langues'] == "Français") {
-        echo "<td><a href='../controle/accountDeactivation.php?id_compte=".$a['id_compte']."' class='btn btnActif' title='Désactiver le profil'></a></td>";
+        echo "<td><a ".$malvoyant." href='../controle/accountDeactivation.php?id_compte=".$a['id_compte']."' class='btn btnActif' title='Désactiver le profil'></a></td>";
       } else {
-        echo "<td><a href='../controle/accountDeactivation.php?id_compte=".$a['id_compte']."' class='btn btnActif' title='Deactivate the profile'></a></td>";
+        echo "<td><a ".$malvoyant." href='../controle/accountDeactivation.php?id_compte=".$a['id_compte']."' class='btn btnActif' title='Deactivate the profile'></a></td>";
       }
     } else {
       if ($_SESSION['langues'] == "Français") {
-        echo "<td><a href='../controle/accountActivation.php?id_compte=".$a['id_compte']."' class='btn btnInactif' title='Activer le profil'></a></td>";
+        echo "<td><a ".$malvoyant." href='../controle/accountActivation.php?id_compte=".$a['id_compte']."' class='btn btnInactif' title='Activer le profil'></a></td>";
       } else {
-        echo "<td><a href='../controle/accountActivation.php?id_compte=".$a['id_compte']."' class='btn btnInactif' title='Activate the profile'></a></td>";
+        echo "<td><a ".$malvoyant." href='../controle/accountActivation.php?id_compte=".$a['id_compte']."' class='btn btnInactif' title='Activate the profile'></a></td>";
       }
     }
-    echo "<td><a href='../vue/modifUtilisateur.php?id_compte=".$a['id_compte']."' class='btnLien'>";
+    echo "<td><a ".$malvoyant." href='../vue/modifUtilisateur.php?id_compte=".$a['id_compte']."' class='btnLien'>";
         if ($_SESSION['langues'] == 'Français') {
             echo "Modifier";
         } elseif ($_SESSION['langues'] == 'English') {

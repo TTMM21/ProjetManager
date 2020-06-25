@@ -12,9 +12,14 @@ if ($_SESSION['langues'] == "Français") {
 } else {
   render('header', ['title' => 'Concept&Co | Accounts\' management']);
 }
+if ($_SESSION['malvoyant'] == "1") {
+  $malvoyant = "id ='lien-malvoyant'";
+}else{
+  $malvoyant = "id ='lien'";
+}  
 ?>
 <!--Button which links to the page addUser.php-->
-<a href="addUser.php" class="btnLien"  style="float: right; margin-right: 30px">
+<?php echo '<a '.$malvoyant.' href="addUser.php" class="btnLien"  style="float: right; margin-right: 30px">'?>
     <?php if ($_SESSION['langues'] == 'Français'): ?>
         Ajouter un utilisateur
     <?php endif; ?>

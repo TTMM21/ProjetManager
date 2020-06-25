@@ -1,9 +1,8 @@
 <?php
+include "../lib/NavBar.php";
 include '../lib/lib.php';
 include '../controle/lists/getProjectsListCtrl.php';
 include '../controle/lists/getTasksListCtrl.php';
-include "../lib/NavBar.php";
-
 
 if ($_SESSION['langues'] == "Français") {
   render('header', ['title' => 'Concept&Co | Accueil']);

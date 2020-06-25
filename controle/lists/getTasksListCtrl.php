@@ -1,9 +1,16 @@
 <?php
 include '../lib/lists/getTasksList.php';
 
+
+
 /*Give the projects in the tab, page index.php*/
 function getTasksListCtrl($id_comptes) {
   $tasks = getTasksList($id_comptes);
+  if ($_SESSION['malvoyant'] == "1") {
+    $malvoyant = "id ='lien-malvoyant'";
+  }else{
+    $malvoyant = "id ='lien'";
+  }
   echo "<table class='table table-striped table-hover' style='background-color: white'>";
   echo "<thead>";
   echo "<tr>";
@@ -21,9 +28,9 @@ function getTasksListCtrl($id_comptes) {
   echo "<tbody>";
   foreach ($tasks as $t) {
     echo "<tr>";
-    echo "<td><a href='../vue/tache.php?id_tache=".$t['id_taches']."'>".$t['nom']."</a></td>";
-    echo "<td><a href='../vue/tache.php?id_tache=".$t['id_taches']."'>".getProjectName($t['id_projets'])."</a></td>";
-    echo "<td><a href='../vue/tache.php?id_tache=".$t['id_taches']."'>".date('d/m/Y', strtotime($t['date_de_fin']))."</a></td>";
+    echo "<td><a ".$malvoyant." href='../vue/tache.php?id_tache=".$t['id_taches']."'>".$t['nom']."</a></td>";
+    echo "<td><a ".$malvoyant." href='../vue/tache.php?id_tache=".$t['id_taches']."'>".getProjectName($t['id_projets'])."</a></td>";
+    echo "<td><a ".$malvoyant." href='../vue/tache.php?id_tache=".$t['id_taches']."'>".date('d/m/Y', strtotime($t['date_de_fin']))."</a></td>";
   }
   echo "</tbody>";
   echo "</table>";
@@ -33,6 +40,11 @@ function getTasksListCtrl($id_comptes) {
 /*Give the projects in the tab, page tasksFinished.php*/
 function getTasksFinishedListCtrl($id_comptes) {
   $tasks = getTasksFinishedList($id_comptes);
+  if ($_SESSION['malvoyant'] == "1") {
+    $malvoyant = "id ='lien-malvoyant'";
+  }else{
+    $malvoyant = "id ='lien'";
+  }
   echo "<table class='table table-striped table-hover' style='background-color: white'>";
   echo "<thead>";
   echo "<tr>";
@@ -50,9 +62,9 @@ function getTasksFinishedListCtrl($id_comptes) {
   echo "<tbody>";
   foreach ($tasks as $t) {
     echo "<tr>";
-    echo "<td><a href='../vue/tache.php?id_tache=".$t['id_taches']."'>".$t['nom']."</a></td>";
-    echo "<td><a href='../vue/tache.php?id_tache=".$t['id_taches']."'>".getProjectName($t['id_projets'])."</a></td>";
-    echo "<td><a href='../vue/tache.php?id_tache=".$t['id_taches']."'>".$t['date_de_fin']."</a></td>";
+    echo "<td><a ".$malvoyant." href='../vue/tache.php?id_tache=".$t['id_taches']."'>".$t['nom']."</a></td>";
+    echo "<td><a ".$malvoyant." href='../vue/tache.php?id_tache=".$t['id_taches']."'>".getProjectName($t['id_projets'])."</a></td>";
+    echo "<td><a ".$malvoyant." href='../vue/tache.php?id_tache=".$t['id_taches']."'>".$t['date_de_fin']."</a></td>";
   }
   echo "</tbody>";
   echo "</table>";

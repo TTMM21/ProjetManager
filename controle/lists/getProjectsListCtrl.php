@@ -4,6 +4,11 @@ include '../lib/lists/getProjectsList.php';
 /*Give the projects in the tab, page index.php*/
 function getProjectsListCtrl($id_equipes) {
   $projects = getProjectsList($id_equipes);
+  if ($_SESSION['malvoyant'] == "1") {
+    $malvoyant = "id ='lien-malvoyant'";
+  }else{
+    $malvoyant = "id ='lien'";
+  }  
   echo "<table class='table table-striped table-hover' style='background-color: white'>";
   echo "<thead>";
   echo "<tr>";
@@ -19,8 +24,8 @@ function getProjectsListCtrl($id_equipes) {
   echo "<tbody>";
   foreach ($projects as $p) {
     echo "<tr>";
-    echo "<td><a href='../vue/projet.php?id_projet=".$p['id_projets']."'>".$p['nom'].'</a></td>';
-    echo "<td><a href='../vue/projet.php?id_projet=".$p['id_projets']."'>".date('d/m/Y', strtotime($p['date_de_fin'])).'</a></td>';
+    echo "<td><a ".$malvoyant." href='../vue/projet.php?id_projet=".$p['id_projets']."'>".$p['nom'].'</a></td>';
+    echo "<td><a ".$malvoyant." href='../vue/projet.php?id_projet=".$p['id_projets']."'>".date('d/m/Y', strtotime($p['date_de_fin'])).'</a></td>';
   }
   echo "</tbody>";
   echo "</table>";
@@ -29,6 +34,11 @@ function getProjectsListCtrl($id_equipes) {
 /*Give the projects in the tab, page projectsFinished.php*/
 function getProjectsFinishedListCtrl($id_equipes) {
   $projects = getProjectsFinishedList($id_equipes);
+  if ($_SESSION['malvoyant'] == "1") {
+    $malvoyant = "id ='lien-malvoyant'";
+  }else{
+    $malvoyant = "id ='lien'";
+  }  
   echo "<table class='table table-striped table-hover' style='background-color: white'>";
   echo "<thead>";
   echo "<tr>";
@@ -44,8 +54,8 @@ function getProjectsFinishedListCtrl($id_equipes) {
   echo "<tbody>";
   foreach ($projects as $p) {
     echo "<tr>";
-    echo "<td><a href='../vue/projet.php?id_projet=".$p['id_projets']."'>".$p['nom'].'</a></td>';
-    echo "<td><a href='../vue/projet.php?id_projet=".$p['id_projets']."'>".$p['date_de_fin'].'</a></td>';
+    echo "<td><a ".$malvoyant." href='../vue/projet.php?id_projet=".$p['id_projets']."'>".$p['nom'].'</a></td>';
+    echo "<td><a ".$malvoyant." href='../vue/projet.php?id_projet=".$p['id_projets']."'>".$p['date_de_fin'].'</a></td>';
   }
   echo "</tbody>";
   echo "</table>";
