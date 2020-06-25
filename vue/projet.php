@@ -43,8 +43,8 @@ render('header', ['title' => 'Concept&Co | '.$data["nom"].'']); //Gives the head
     <?php endif; ?>
 </a>
 
-<!--Button which links to the page addProject.php-->
-<a href="addProject.php?id_projet=<?= $_GET['id_projet'] ?>" class="btnLien"  style="float: right; margin-right: 30px">
+<!--Button which links to the page addTask.php-->
+<a href="addTask.php?id_projet=<?= $_GET['id_projet'] ?>" class="btnLien"  style="float: right; margin-right: 30px">
     <?php if ($_SESSION['langues'] == 'Français'): ?>
         Ajout d'une tâche
     <?php endif; ?>

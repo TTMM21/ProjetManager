@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $task = new Task();
     $task = $tasks->hydrateTask(new Task(), $data);
     $tasks->createTask($task);
-    header("Location: projet.php?id_projet=<?= $_GET['id_projet'] &add=1?>");
+    header("Location: projet.php?id_projet=".$_GET['id_projet']."&add=1");
     exit();
 }
 
@@ -64,8 +64,8 @@ render('header', ['title' => 'Concept&Co | Ajout d\'une tâche']); //Gives the h
                             <input type="text" name="nom" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="version" style="color: white"><b>Description *</b></label>
-                            <input type="longtext" name="version" class="form-control" required>
+                            <label for="description" style="color: white"><b>Description *</b></label>
+                            <input type="longtext" name="description" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="date_de_debut" style="color: white"><b>Date de début *</b></label>
@@ -76,7 +76,7 @@ render('header', ['title' => 'Concept&Co | Ajout d\'une tâche']); //Gives the h
                             <input type="date" name="date_de_fin" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="id_equipes" style="color: white"><b>Personne en charge *</b></label>
+                            <label for="id_comptes" style="color: white"><b>Personne en charge *</b></label>
                             <?php getEmployeesListCtrl() ?>
                         </div>
                         </div>
@@ -88,8 +88,8 @@ render('header', ['title' => 'Concept&Co | Ajout d\'une tâche']); //Gives the h
                             <input type="text" name="nom" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="version" style="color: white"><b>Description *</b></label>
-                            <input type="text" name="version" class="form-control" required>
+                            <label for="description" style="color: white"><b>Description *</b></label>
+                            <input type="text" name="description" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="date_de_debut" style="color: white"><b>Start date *</b></label>
@@ -100,13 +100,8 @@ render('header', ['title' => 'Concept&Co | Ajout d\'une tâche']); //Gives the h
                             <input type="date" name="date_de_fin" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="id_equipes" style="color: white"><b>Team in charges *</b></label>
-                            <select class="form-control" required name="id_equipes">
-                                <option value="1">Equipe 1</option>
-                                <option value="2">Equipe 2</option>
-                                <option value="3">Equipe 3</option>
-                                <option value="4">Equipe 4</option>
-                            </select>
+                            <label for="id_equipes" style="color: white"><b>Person in charges *</b></label>
+                            <?php getEmployeesListCtrl() ?>
                         </div>
                         <button type="submit" class="btn btn-success"><b>SUBMIT</b></button>
                     <?php endif; ?>
