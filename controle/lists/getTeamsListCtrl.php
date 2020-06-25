@@ -17,15 +17,15 @@ function getTeamsListCtrl() {
         echo "<li class='list-group-item' style='background-color: #ededed'><a href='../vue/TeamManagementAdd.php?Team=".$id."' id='tableau_button'>Equipe: ".$name."</a>";
         if ($TeamName['actif'] === 1) {
           if ($_SESSION['langues'] == "Français") {
-            echo "<a href='' id='btnActifEquipe' class='btn btnActif' title='Désactiver le profil'></a></li>";
+            echo "<a href='..\controle\TeamDeativation.php?id_equipe=".$id."' id='btnActifEquipe' class='btn btnActif' title='Désactiver le profil'></a></li>";
           } else {
-            echo "<a href='' id='btnActifEquipe' class='btn btnActif' title='Deactivate the profile'></a></li>";
+            echo "<a href='..\controle\TeamDeativation.php?id_equipe=".$id."' id='btnActifEquipe' class='btn btnActif' title='Deactivate the profile'></a></li>";
           }
         } else {
           if ($_SESSION['langues'] == "Français") {
-            echo "<a href='' id='btnActifEquipe' class='btn btnInactif' title='Activer le profil'></a></li>";
+            echo "<a href='..\controle\TeamActivation.php?id_equipe=".$id."' id='btnActifEquipe' class='btn btnInactif' title='Activer le profil'></a></li>";
           } else {
-            echo "<a href='' id='btnActifEquipe' class='btn btnInactif' title='Activate the profile'></a></li>";
+            echo "<a href='..\controle\TeamActivation.php?id_equipe=".$id."' id='btnActifEquipe' class='btn btnInactif' title='Activate the profile'></a></li>";
           }
         }
       } else {
