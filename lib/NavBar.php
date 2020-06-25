@@ -73,6 +73,13 @@ if ($_SESSION['mobile'] = 0){
       }
     }
 
+  /** error display */
+  if(isset($_SESSION["erreur"]) === false || $_SESSION["erreur"] == ""){
+
+  }else{
+      echo $_SESSION["erreur"];
+      $_SESSION["erreur"]='';
+  }
 
   /** connection verification **/
   if((isset($_SESSION["mail"])==false) && ($URL == "login")){
@@ -82,14 +89,3 @@ if ($_SESSION['mobile'] = 0){
 ?>
 </nav>
 </br>
-
-<?php
-  /** error display */
-  if(isset($_SESSION["erreur"]) === false || $_SESSION["erreur"] == ""){
-
-  }else{
-      echo $_SESSION["erreur"];
-      $_SESSION["erreur"]='';
-  }
-
-?>
