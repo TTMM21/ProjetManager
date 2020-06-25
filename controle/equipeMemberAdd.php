@@ -4,6 +4,7 @@ require '..\lib\lists\getMemberListTeam.php';
 
 $TeamID = $_GET['Team'];
 $TeamName=getTeamName($TeamNameAdd);
+session_start();
 
 if(isset($_POST['TeamNameAdd']) && $_POST['TeamNameAdd'] != NULL  && $_POST['TeamNameAdd'] != " "){
     $pdo = Connect();
@@ -13,7 +14,15 @@ if(isset($_POST['TeamNameAdd']) && $_POST['TeamNameAdd'] != NULL  && $_POST['Tea
         $sql = "UPDATE equipes SET nom = '".$TeamNameAdd."' WHERE id_equipes='".$TeamID."';";
         execQuery($pdo, $sql);
         $TeamName = $TeamNameAdd;
+    }else{
+        if ($_SESSION["langues"] == "Français"){
+            ErreurMSG("Une équipe porte deja ce nom");
+        }
+        if ($_SESSION["langues"] == "English"){
+            ErreurMSG("A team already bears this name");
+        }
     }
+    
 }
 if(isset($_POST['TeamMemebreAdd']) && $_POST['TeamMemebreAdd'] != "NULL"){
     $pdo = Connect();

@@ -51,14 +51,6 @@ session_start();
       }
   }
 
-  /** error display */
-  if(isset($_SESSION["erreur"]) === false || $_SESSION["erreur"] == ""){
-
-  }else{
-      echo $_SESSION["erreur"];
-      $_SESSION["erreur"]='';
-  }
-
   /** connection verification **/
   if((isset($_SESSION["mail"])==false) && ($URL == "login")){
       header('Location: ../vue/login.php');
@@ -67,3 +59,12 @@ session_start();
 ?>
 </nav>
 </br>
+<?php
+/** error display */
+  if(isset($_SESSION["erreur"]) === false || $_SESSION["erreur"] == ""){
+
+  }else{
+      echo $_SESSION["erreur"];
+      $_SESSION["erreur"]='';
+  }
+?>
