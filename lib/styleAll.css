@@ -92,6 +92,11 @@ html,body {
 	top:1px;
 }
 
+
+#btnActifEquipe {
+    float: right; 
+}
+
 #login-br {
 content: "";
 display: block;

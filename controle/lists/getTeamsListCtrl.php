@@ -14,7 +14,20 @@ function getTeamsListCtrl() {
     foreach ($TeamsNames as $TeamName) {
       $name = $TeamName['nom'];
       if ($_SESSION['langues'] == "Français") {
-        echo "<li class='list-group-item' style='background-color: #ededed'><a href='../vue/TeamManagementAdd.php?Team=".$id."' id='tableau_button'>Equipe: ".$name."</a></li>";
+        echo "<li class='list-group-item' style='background-color: #ededed'><a href='../vue/TeamManagementAdd.php?Team=".$id."' id='tableau_button'>Equipe: ".$name."</a>";
+        if ($TeamName['actif'] === 1) {
+          if ($_SESSION['langues'] == "Français") {
+            echo "<a href='' id='btnActifEquipe' class='btn btnActif' title='Désactiver le profil'></a></li>";
+          } else {
+            echo "<a href='' id='btnActifEquipe' class='btn btnActif' title='Deactivate the profile'></a></li>";
+          }
+        } else {
+          if ($_SESSION['langues'] == "Français") {
+            echo "<a href='' id='btnActifEquipe' class='btn btnInactif' title='Activer le profil'></a></li>";
+          } else {
+            echo "<a href='' id='btnActifEquipe' class='btn btnInactif' title='Activate the profile'></a></li>";
+          }
+        }
       } else {
         echo "<li class='list-group-item' style='background-color: #ededed'><a href='../vue/TeamManagementAdd.php?Team=".$id."' id='tableau_button'>Team: ".$name."</a></li>";
       }
