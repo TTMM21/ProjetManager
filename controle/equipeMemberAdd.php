@@ -3,13 +3,13 @@ require '../lib/lib.php';
 require '..\lib\lists\getMemberListTeam.php';
 
 $TeamID = $_GET['Team'];
-$TestName=getTeamName($TeamNameAdd);
+$TeamName=getTeamName($TeamNameAdd);
 
 if(isset($_POST['TeamNameAdd']) && $_POST['TeamNameAdd'] != NULL  && $_POST['TeamNameAdd'] != " "){
     $pdo = Connect();
     $TeamNameAdd = $_POST['TeamNameAdd'];
-
-    if($TestName != NULL){
+    $TestName=getTeam($TeamNameAdd);
+    if($TestName == NULL){
         $sql = "UPDATE equipes SET nom = '".$TeamNameAdd."' WHERE id_equipes='".$TeamID."';";
         execQuery($pdo, $sql);
         $TeamName = $TeamNameAdd;
