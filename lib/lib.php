@@ -39,22 +39,19 @@ function Connect(){
 //Display erreor message function
 function ErreurMSG($MSG){
     session_start();
+    if ($_SESSION["langues"] == "Français"){
+        $HeadErreur = "Erreur";
+    }elseif ($_SESSION["langues"] == "English"){
+        $HeadErreur = "Error";
+    }
 
     $MSG ='<div class="card text-white bg-warning mb-3" style="width: 18rem;">
-                <h5 >Error</h5>
+                <h5>'.$HeadErreur.'</h5>
                 <div>
                     <p>'.$MSG.'</p>
                 </div>
             </div>';
   $_SESSION["erreur"]=$MSG;
-    if(isset($_SESSION["email"]) && $_SESSION["status"] == 2){
-        header('Location: ./Vue/Table_folder.php');
-        exit();
-
-    }else{
-    header('Location: ../Vue/login.php');
-    exit();
-    }
 }
 
 //Display valid message function

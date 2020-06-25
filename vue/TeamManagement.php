@@ -5,6 +5,7 @@
 include "../lib/NavBar.php";
 include "../lib/lib.php";
 include '../controle/lists/getTeamsListCtrl.php';
+include '../lib/lists/getMemberListTeam.php';
 
 //Put the correct header according to the user's language
 if ($_SESSION['langues'] == "Français") {
@@ -13,7 +14,14 @@ if ($_SESSION['langues'] == "Français") {
   render('header', ['title' => 'Concept&Co | Teams\' management']);
 }
 ?>
-
+<a href="TeamAdd.php" class="btnLien"  style="float: right; margin-right: 30px">
+    <?php if ($_SESSION['langues'] == 'Français'): ?>
+        Ajouter un equipe
+    <?php endif; ?>
+    <?php if ($_SESSION['langues'] == 'English'): ?>
+        Add an Team
+    <?php endif; ?>
+</a>
 <div class="container" style="margin: 10% auto auto auto">
   <div class="card" style="background-color: rgba(0, 0, 20, 0.5)">
     <div class="card-header" style="color: white">

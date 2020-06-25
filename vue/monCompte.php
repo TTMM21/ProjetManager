@@ -16,7 +16,7 @@ $users = new Users($pdo);
 
 //Permits to know if there is a user with the given id
 try {
-    $user = $users->findUser($_GET['id_compte'] ?? null);
+    $user = $users->findUser($_SESSION['id'] ?? null);
 } catch (\Exception $e) {
     e404();
 }
