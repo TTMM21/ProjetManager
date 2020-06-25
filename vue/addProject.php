@@ -62,7 +62,7 @@ render('header', ['title' => 'Concept&Co | Ajout d\'un projet']); //Gives the he
                         </div>
                         <div class="form-group">
                             <label for="version" style="color: white"><b>Version *</b></label>
-                            <input type="text" name="version" class="form-control" required>
+                            <input type="number" name="version" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="date_de_debut" style="color: white"><b>Date de début *</b></label>

@@ -42,14 +42,16 @@ if ($_SESSION['mobile'] = 0){
 
 
         if($_SESSION["statuts"] == "Administrateur" && $_SESSION["langues"] == "Français"){
-          echo '<a class="nav-link" href="../vue/projectsFinished.php" '.$malvoyant.'>Historique des projets</a>
+          echo '<a class="nav-link" href="../vue/addProject.php" '.$malvoyant.'>Ajouter un projet</a>
+          <a class="nav-link" href="../vue/projectsFinished.php" '.$malvoyant.'>Historique des projets</a>
           <a class="nav-link" href="../vue/tasksFinished.php" '.$malvoyant.'>Historique des tâches</a>
           <a class="nav-link" href="../vue/TeamManagement.php" '.$malvoyant.'>Gestion des équipes</a>
           <a class="nav-link" href="../vue/AccountManagement.php" '.$malvoyant.'>Gestion des utilisateurs</a>';
         }
 
         if($_SESSION["statuts"] == "Administrateur" && $_SESSION["langues"] == "English"){
-            echo '<a class="nav-link" href="../vue/projectsFinished.php" '.$malvoyant.'>Projects\' archive</a>
+            echo '<a class="nav-link" href="../vue/addProject.php" '.$malvoyant.'>Projects\' add</a>
+            <a class="nav-link" href="../vue/projectsFinished.php" '.$malvoyant.'>Projects\' archive</a>
             <a class="nav-link" href="../vue/tasksFinished.php" '.$malvoyant.'>Tasks\' archive</a>
             <a class="nav-link" href="../vue/TeamManagement.php" '.$malvoyant.'>Teams\' management</a>
             <a class="nav-link" href="../vue/AccountsManagement.php" '.$malvoyant.'>Accounts\' management</a>';
@@ -73,14 +75,6 @@ if ($_SESSION['mobile'] = 0){
       }
     }
 
-  /** error display */
-  if(isset($_SESSION["erreur"]) === false || $_SESSION["erreur"] == ""){
-
-  }else{
-      echo $_SESSION["erreur"];
-      $_SESSION["erreur"]='';
-  }
-
   /** connection verification **/
   if((isset($_SESSION["mail"])==false) && ($URL == "login")){
       header('Location: ../vue/login.php');
@@ -89,3 +83,14 @@ if ($_SESSION['mobile'] = 0){
 ?>
 </nav>
 </br>
+
+<?php
+  /* error display */
+  if(isset($_SESSION["erreur"]) === false || $_SESSION["erreur"] == ""){
+
+  }else{
+      echo $_SESSION["erreur"];
+      $_SESSION["erreur"]='';
+  }
+
+?>

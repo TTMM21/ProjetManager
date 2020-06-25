@@ -34,34 +34,34 @@ $data=[
 render('header', ['title' => 'Concept&Co | '.$data["nom"].'']); //Gives the header
 ?>
 <!--Button which links to the page deleteProject.php-->
-<a href="../controle/deleteProject.php?id_projet=<?= $_GET['id_projet'] ?>" class="btnLien"  style="float: right; margin-right: 30px">
+<button type="button" class="btn btn-dark" onclick="location.href='../controle/deleteProject.php?id_projet=<?= $_GET['id_projet'] ?>'" title="Cliquer pour supprimer le projet" style="float: right; margin-right: 30px">
     <?php if ($_SESSION['langues'] == 'Français'): ?>
         Supprimer le projet
     <?php endif; ?>
     <?php if ($_SESSION['langues'] == 'English'): ?>
         Delete the project
     <?php endif; ?>
-</a>
+</button>
 
 <!--Button which links to the page addTask.php-->
-<a href="addTask.php?id_projet=<?= $_GET['id_projet'] ?>" class="btnLien"  style="float: right; margin-right: 30px">
+<button type="button" class="btn btn-dark" onclick="location.href='addTask.php?id_projet=<?= $_GET['id_projet'] ?>'" title="Cliquer pour ajouter une tâche" style="float: right; margin-right: 30px">
     <?php if ($_SESSION['langues'] == 'Français'): ?>
         Ajout d'une tâche
     <?php endif; ?>
     <?php if ($_SESSION['langues'] == 'English'): ?>
         Add a task
     <?php endif; ?>
-</a>
+</button>
 
 <!--Button which links to the page modifyProject.php-->
-<a href="modifyProject.php?id_projet=<?= $_GET['id_projet'] ?>" class="btnLien"  style="float: right; margin-right: 30px">
+<button type="button" class="btn btn-dark" onclick="location.href='modifyProject.php?id_projet=<?= $_GET['id_projet'] ?>'" title="Cliquer pour ajouter une tâche" style="float: right; margin-right: 30px">
     <?php if ($_SESSION['langues'] == 'Français'): ?>
         Modifier le projet
     <?php endif; ?>
     <?php if ($_SESSION['langues'] == 'English'): ?>
         Modifiy the project
     <?php endif; ?>
-</a>
+</button>
 
 <!--Button which opens the modal-->
 <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#statusModal" title="Cliquer pour changer l'avancement du projet" style="float: right; margin-right: 30px">

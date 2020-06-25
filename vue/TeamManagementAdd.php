@@ -4,9 +4,16 @@
 //Files used in the page
 include "../lib/NavBar.php";
 include "../lib/lib.php";
+require '../vendor/autoload.php';
 include '../controle/lists/getTeamMember.php';
 include '../controle/lists/getTeamsListCtrl.php';
 include '../lib/lists/getMemberListTeam.php';
+
+if ($_SESSION['malvoyant'] == "1") {
+  $malvoyant = "id ='lien-malvoyant'";
+}else{
+  $malvoyant = "id ='lien'";
+}  
 
 $TeamID = $_GET['Team'];
 $TeamName = getTeamName($TeamID);
@@ -32,37 +39,43 @@ if ($_SESSION['langues'] == "Français") {
 
     <div class="card-body">
       <div style="margin: auto 10% auto 10%">
-        <form action="../controle/equipeMemberAdd.php?Team=<?=$TeamID?>" method="post">
-            <p>        
+        <form action="../controle/equipeMemberAdd.php?Team=<?=$TeamID?>" method="post">   
+            <div class="form-group">
               <?php if ($_SESSION['langues'] == 'Français'): ?>
-                Nouveau nom d'equipe
+                <label for="nom" style="color: white"><b>Nouveau nom d'equipe :</b></label>
               <?php endif; ?>
               <?php if ($_SESSION['langues'] == 'English'): ?>
-                Team name add: 
+                <label for="nom" style="color: white"><b>Team name add:</b></label>
               <?php endif; ?>
-              <input type="text" name="TeamNameAdd"/>
-            </p>
+                <input type="text" class="form-control" name="TeamNameAdd"/>
+            </div>   
 
-            <p>        
+            <div class="form-group">
               <?php if ($_SESSION['langues'] == 'Français'): ?>
-                Nouveau membre dans l'equipe : 
+                <label for="nom" style="color: white"><b>Nouveau membre dans l'equipe : </b></label>
               <?php endif; ?>
               <?php if ($_SESSION['langues'] == 'English'): ?>
-                Team member add: 
+                <label for="nom" style="color: white"><b>Team member add:</b></label>
               <?php endif; ?>
-              <?php getTeamsListNotMemberCrl($TeamID); ?>
-            </p>
+                <?php getTeamsListNotMemberCrl($TeamID); ?>
+            </div>   
 
-            <p>              
+            <div class="form-group">
               <?php if ($_SESSION['langues'] == 'Français'): ?>
-                Retirer membre de l'equipe : 
+                <label for="nom" style="color: white"><b>Retirer membre de l'equipe : </b></label>
               <?php endif; ?>
               <?php if ($_SESSION['langues'] == 'English'): ?>
-                Team member add: 
-              <?php endif; ?> 
-              <?php getTeamsListMemberCrl($TeamID); ?>
-            </p>
-            <input type="submit" value="OK">
+                <label for="nom" style="color: white"><b>Team member remove:</b></label>
+              <?php endif; ?>
+                <?php getTeamsListMemberCrl($TeamID); ?>
+            </div>   
+            <?php if ($_SESSION['langues'] == 'Français'): ?>
+              <button type="submit" class="btn btn-success"><b>VALIDER</b></button>
+            <?php endif; ?>
+            <?php if ($_SESSION['langues'] == 'English'): ?>
+              <button type="submit" class="btn btn-success"><b>SUBMIT</b></button>
+            <?php endif; ?>
+            
         </form>
       </div>
       <div class="card-body">
@@ -76,9 +89,9 @@ if ($_SESSION['langues'] == "Français") {
               }
 
             if ($_SESSION['langues'] == "Français") {
-              echo "<li class='list-group-item' style='background-color: #ededed'><a href='../vue/TeamManagementAdd.php?Team=".$TeamID."' id='tableau_button'>Equipe: ".$name."</a></li>";
+              echo "<li class='list-group-item' style='background-color: #ededed'><a id='lien' id='tableau_button'>Equipe: ".$name."</a></li>";
             } else {
-              echo "<li class='list-group-item' style='background-color: #ededed'><a href='../vue/TeamManagementAdd.php?Team=".$TeamID."' id='tableau_button'>Team: ".$name."</a></li>";
+              echo "<li class='list-group-item' style='background-color: #ededed'><a id='lien' id='tableau_button'>Team: ".$name."</a></li>";
             }
 
             foreach ($accounts as $a) {

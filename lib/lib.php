@@ -45,10 +45,10 @@ function ErreurMSG($MSG){
         $HeadErreur = "Error";
     }
 
-    $MSG ='<div class="card text-white bg-warning mb-3" style="width: 18rem;">
-                <h5>'.$HeadErreur.'</h5>
-                <div>
-                    <p>'.$MSG.'</p>
+    $MSG ='<div class="card text-white bg-warning mb-3" style="width: 25rem; margin-left: auto; margin-right: auto; font-size: 1.2em;">
+                <h5 style="margin-left: auto; margin-right: auto;">'.$HeadErreur.'</h5>
+                <div style="margin-left: auto; margin-right: auto;">
+                    <p >'.$MSG.'</p>
                 </div>
             </div>';
   $_SESSION["erreur"]=$MSG;

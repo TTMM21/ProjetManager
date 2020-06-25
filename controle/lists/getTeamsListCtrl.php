@@ -5,7 +5,11 @@ include '../lib/lists/getTeamsList.php';
 function getTeamsListCtrl() {
   $countList = getTeamsListCount();
   echo "<ul class='list-group'>";
-
+  if ($_SESSION['malvoyant'] == "1") {
+    $malvoyant = "id ='lien-malvoyant'";
+  }else{
+    $malvoyant = "id ='lien'";
+  }
 
   for ($i=1; $i <= $countList ; $i++) {
     $accounts = getTeamsMemberList($i);
@@ -14,7 +18,7 @@ function getTeamsListCtrl() {
     foreach ($TeamsNames as $TeamName) {
       $name = $TeamName['nom'];
       if ($_SESSION['langues'] == "Français") {
-        echo "<li class='list-group-item' style='background-color: #ededed'><a href='../vue/TeamManagementAdd.php?Team=".$id."' id='tableau_button'>Equipe: ".$name."</a>";
+        echo "<li class='list-group-item' style='background-color: #ededed'><a ".$malvoyant." href='../vue/TeamManagementAdd.php?Team=".$id."' id='tableau_button'>Equipe: ".$name."</a>";
         if ($TeamName['actif'] === 1) {
           if ($_SESSION['langues'] == "Français") {
             echo "<a href='..\controle\TeamDeativation.php?id_equipe=".$id."' id='btnActifEquipe' class='btn btnActif' title='Désactiver le profil'></a></li>";
@@ -29,7 +33,7 @@ function getTeamsListCtrl() {
           }
         }
       } else {
-        echo "<li class='list-group-item' style='background-color: #ededed'><a href='../vue/TeamManagementAdd.php?Team=".$id."' id='tableau_button'>Team: ".$name."</a></li>";
+        echo "<li class='list-group-item' style='background-color: #ededed'><a ".$malvoyant." href='../vue/TeamManagementAdd.php?Team=".$id."' id='tableau_button'>Team: ".$name."</a></li>";
       }
     }
     

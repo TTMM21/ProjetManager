@@ -7,6 +7,12 @@ include "../lib/lib.php";
 include '../controle/lists/getTeamsListCtrl.php';
 include '../lib/lists/getMemberListTeam.php';
 
+if ($_SESSION['malvoyant'] == "1") {
+  $malvoyant = "id ='lien-malvoyant'";
+}else{
+  $malvoyant = "id ='lien'";
+}  
+
 //Put the correct header according to the user's language
 if ($_SESSION['langues'] == "Français") {
   render('header', ['title' => 'Concept&Co | Gestion des équipes']);
@@ -14,14 +20,17 @@ if ($_SESSION['langues'] == "Français") {
   render('header', ['title' => 'Concept&Co | Teams\' management']);
 }
 ?>
-<a href="TeamAdd.php" class="btnLien"  style="float: right; margin-right: 30px">
+
+<button type="button" class="btn btn-dark" onclick="location.href='TeamAdd.php'" title="Cliquer pour ajouter une équipe" style="float: right; margin-right: 30px">
     <?php if ($_SESSION['langues'] == 'Français'): ?>
         Ajouter un equipe
     <?php endif; ?>
     <?php if ($_SESSION['langues'] == 'English'): ?>
         Add an Team
     <?php endif; ?>
-</a>
+</button>
+
+<a href="TeamAdd.php" class="btnLien" <?php echo $malvoyant; ?> style="float: right; margin-right: 30px">
 <div class="container" style="margin: 10% auto auto auto">
   <div class="card" style="background-color: rgba(0, 0, 20, 0.5)">
     <div class="card-header" style="color: white">
