@@ -36,8 +36,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = $_POST;
 
     $tasks->hydrateTask($task, $data);
-    dd($task);
-    die();
     $tasks->updateTask($task);
     header("Location: tache.php?modify=1&id_tache=".$_GET['id_tache']);
     exit();
