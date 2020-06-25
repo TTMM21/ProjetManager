@@ -46,14 +46,16 @@ render('header', ['title' => 'Concept&Co | '.$data['nom'].'']); //Gives the head
 </a>
 
 <!--Button which links to the page modifyTask.php-->
-<a href="modifyTask.php?id_tache=<?= $_GET['id_tache'] ?>" class="btnLien"  style="float: right; margin-right: 30px">
-    <?php if ($_SESSION['langues'] == 'Français'): ?>
-        Modifier la tâche
-    <?php endif; ?>
-    <?php if ($_SESSION['langues'] == 'English'): ?>
-        Modifiy the task
-    <?php endif; ?>
-</a>
+<button type="button" class="btn btn-dark" data-toggle="modal" data-target="#statusModal" title="" style="float: right; margin-right: 30px">
+    <a href="modifyTask.php?id_tache=<?= $_GET['id_tache'] ?>" class="btnLien"  style="float: right; margin-right: 30px">
+        <?php if ($_SESSION['langues'] == 'Français'): ?>
+            Modifier la tâche
+        <?php endif; ?>
+        <?php if ($_SESSION['langues'] == 'English'): ?>
+            Modifiy the task
+        <?php endif; ?>
+    </a>
+</bouton>
 
 
 <!--Button which opens the modal-->

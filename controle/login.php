@@ -66,6 +66,7 @@ if ($allIsFine === true) {
             $_SESSION["langues"] = $id_langues;
             $_SESSION["equipe"] = $id_equipes;
             $_SESSION["malvoyant"] = $malvoyant;
+            $_SESSION["mobile"] = '0';
             header('Location: ../vue/index.php');
             exit();
 

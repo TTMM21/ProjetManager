@@ -32,8 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_POST['actif'] = 1;
         $_POST['malvoyant'] = 0;
         $_POST['id_langues'] = 1;
-        $_POST['id_statuts'] = intval($_POST['id_statuts']);
-        $_POST['id_equipes'] = intval($_POST['id_equipes']);
         $data = $_POST;
 
         $users = new Users(Connect());

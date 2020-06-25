@@ -5,11 +5,9 @@
 include "../lib/NavBar.php";
 include "../lib/lib.php";
 include '../controle/lists/getTeamMember.php';
-include '../controle/lists/getTeamsListCtrl.php';
-include '../lib/lists/getMemberListTeam.php';
 
-$TeamID = $_GET['Team'];
-$TeamName = getTeamName($TeamID);
+$TeamName = $_GET['Team'];
+
 
 //Put the correct header according to the user's language
 if ($_SESSION['langues'] == "Français") {
@@ -32,60 +30,16 @@ if ($_SESSION['langues'] == "Français") {
 
     <div class="card-body">
       <div style="margin: auto 10% auto 10%">
-        <form action="../controle/equipeMemberAdd.php?Team=<?=$TeamID?>" method="post">
-            <p>        
-              <?php if ($_SESSION['langues'] == 'Français'): ?>
-                Nouveau nom d'equipe
-              <?php endif; ?>
-              <?php if ($_SESSION['langues'] == 'English'): ?>
-                Team name add: 
-              <?php endif; ?>
-              <input type="text" name="TeamNameAdd"/>
-            </p>
+        //nom de l'equipe
+        // + membre
+        // - membre
+        <form action="../controle/equipeMemberAdd.php?Team=<?=$TeamName?>" method="post">
+            <p>Team name add: <input type="text" name="TeamNameAdd"/></p>
 
-            <p>        
-              <?php if ($_SESSION['langues'] == 'Français'): ?>
-                Nouveau membre dans l'equipe : 
-              <?php endif; ?>
-              <?php if ($_SESSION['langues'] == 'English'): ?>
-                Team member add: 
-              <?php endif; ?>
-              <?php getTeamsListNotMemberCrl($TeamID); ?>
-            </p>
+            <p>Team member add: <?php getTeamsListNotMemberCrl($TeamName); ?></p>
 
-            <p>              
-              <?php if ($_SESSION['langues'] == 'Français'): ?>
-                Retirer membre de l'equipe : 
-              <?php endif; ?>
-              <?php if ($_SESSION['langues'] == 'English'): ?>
-                Team member add: 
-              <?php endif; ?> 
-              <?php getTeamsListMemberCrl($TeamID); ?>
-            </p>
-            <input type="submit" value="OK">
+            <p>Team member remouv: <?php getTeamsListMemberCrl($TeamName); ?></p>
         </form>
-      </div>
-      <div class="card-body">
-        <div style="margin: auto 10% auto 10%">
-          <?php
-            echo "<ul class='list-group'>";
-              $accounts = getTeamsMemberList($TeamID);
-              $TeamsNames = getTeamsList($TeamID);
-              foreach ($TeamsNames as $TeamName) {
-                $name = $TeamName['nom'];
-              }
-
-            if ($_SESSION['langues'] == "Français") {
-              echo "<li class='list-group-item' style='background-color: #ededed'><a href='../vue/TeamManagementAdd.php?Team=".$TeamID."' id='tableau_button'>Equipe: ".$name."</a></li>";
-            } else {
-              echo "<li class='list-group-item' style='background-color: #ededed'><a href='../vue/TeamManagementAdd.php?Team=".$TeamID."' id='tableau_button'>Team: ".$name."</a></li>";
-            }
-
-            foreach ($accounts as $a) {
-              echo "<li class='list-group-item' style='padding-left: 60px'>".$a['prenom'].' '.$a['nom']."</li>";
-            }
-          ?>
-        </div>
       </div>
     </div>
   </div>
