@@ -11,7 +11,6 @@ include '../lib/lists/getMemberListTeam.php';
 $TeamID = $_GET['Team'];
 $TeamName = getTeamName($TeamID);
 
-
 //Put the correct header according to the user's language
 if ($_SESSION['langues'] == "Français") {
   render('header', ['title' => "Concept&Co | Gestion ".$TeamName]);
