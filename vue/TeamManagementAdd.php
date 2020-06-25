@@ -34,11 +34,35 @@ if ($_SESSION['langues'] == "Français") {
     <div class="card-body">
       <div style="margin: auto 10% auto 10%">
         <form action="../controle/equipeMemberAdd.php?Team=<?=$TeamID?>" method="post">
-            <p>Team name add: <input type="text" name="TeamNameAdd"/></p>
+            <p>        
+              <?php if ($_SESSION['langues'] == 'Français'): ?>
+                Nouveau nom d'equipe
+              <?php endif; ?>
+              <?php if ($_SESSION['langues'] == 'English'): ?>
+                Team name add: 
+              <?php endif; ?>
+              <input type="text" name="TeamNameAdd"/>
+            </p>
 
-            <p>Team member add: <?php getTeamsListNotMemberCrl($TeamID); ?></p>
+            <p>        
+              <?php if ($_SESSION['langues'] == 'Français'): ?>
+                Nouveau membre dans l'equipe : 
+              <?php endif; ?>
+              <?php if ($_SESSION['langues'] == 'English'): ?>
+                Team member add: 
+              <?php endif; ?>
+              <?php getTeamsListNotMemberCrl($TeamID); ?>
+            </p>
 
-            <p>Team member remouv: <?php getTeamsListMemberCrl($TeamID); ?></p>
+            <p>              
+              <?php if ($_SESSION['langues'] == 'Français'): ?>
+                Retirer membre de l'equipe : 
+              <?php endif; ?>
+              <?php if ($_SESSION['langues'] == 'English'): ?>
+                Team member add: 
+              <?php endif; ?> 
+              <?php getTeamsListMemberCrl($TeamID); ?>
+            </p>
             <input type="submit" value="OK">
         </form>
       </div>
