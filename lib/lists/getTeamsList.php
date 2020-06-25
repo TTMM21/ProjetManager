@@ -21,9 +21,10 @@ function getTeamsListCount() {
 }
 
 function getTeamsList($id) {
-  $req = "SELECT nom FROM equipes WHERE id_equipes = $id ORDER BY id_equipes";
   $connection = Connect();
-  $result = execQuery($connection, $req);
+  $sth = $connection->prepare("SELECT nom FROM equipes WHERE id_equipes = $id ORDER BY id_equipes");
+  $sth->execute();
+  $result = $sth->fetchAll(\PDO::FETCH_ASSOC);
 
   return $result;
 }

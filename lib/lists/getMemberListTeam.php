@@ -4,10 +4,11 @@ function getTeam($name) {
   $sth = $connection->prepare("SELECT * FROM equipes WHERE nom = '$name'");
   $sth->execute();
   $result = $sth->fetchAll(\PDO::FETCH_ASSOC);
-
+  $id=NULL;
   foreach ($result as $rT) {
       $id = $rT['id_equipes'];
   }
+
   return $id;
 }
 
