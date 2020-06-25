@@ -60,7 +60,7 @@ class Tasks {
     $task->setEndTask(DateTimeImmutable::createFromFormat('Y-m-d', "$data[date_de_fin])->format('Y-m-d"));
     $task->setProjectTask("$data[id_projets]");
     $task->setAccountTask("$data[id_comptes]");
-    $task->setAccountTask("$data[id_avancements]");
+    $task->setStatusTask("$data[id_avancements]");
     return $task;
   }
 
