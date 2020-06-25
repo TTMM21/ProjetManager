@@ -96,7 +96,7 @@ class Users {
   * @throws Exception
   */
   public function updateUser (User $user): bool {
-    $statement = $this->pdo->prepare('UPDATE comptes SET nom=?, prenom=?, email=?, mdp=?, actif=?, malvoyant=?, id_statuts=?, id_equipes=?, id_langues=? WHERE id_comptes=?');
+    $statement = $this->pdo->prepare('UPDATE comptes SET nom=?, prenom=?, email=?, mdp=?, actif=?, malvoyant=?, id_statuts=?, id_equipes=?, id_langues=? WHERE id_compte=?');
     return $statement->execute([
       $user->getLastNameUser(),
       $user->getFirstNameUser(),

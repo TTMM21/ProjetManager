@@ -23,17 +23,19 @@ session_start();
 
 
       if($_SESSION["statuts"] == "Administrateur" && $_SESSION["langues"] == "Français"){
-        echo '<a class="nav-link" href="../vue/projectsFinished.php" id="navbar-lien">Historique des projets</a>
+        echo '<a class="nav-link" href="../vue/addProject.php" id="navbar-lien">Ajouter un projet</a>
+        <a class="nav-link" href="../vue/projectsFinished.php" id="navbar-lien">Historique des projets</a>
         <a class="nav-link" href="../vue/tasksFinished.php" id="navbar-lien">Historique des tâches</a>
         <a class="nav-link" href="../vue/TeamManagement.php" id="navbar-lien">Gestion des équipes</a>
         <a class="nav-link" href="../vue/AccountManagement.php" id="navbar-lien">Gestion des utilisateurs</a>';
       }
 
       if($_SESSION["statuts"] == "Administrateur" && $_SESSION["langues"] == "English"){
-          echo '<a class="nav-link" href="../vue/projectsFinished.php" id="navbar-lien">Projects\' archive</a>
-          <a class="nav-link" href="../vue/tasksFinished.php" id="navbar-lien">Tasks\' archive</a>
-          <a class="nav-link" href="../vue/TeamManagement.php" id="navbar-lien">Teams\' management</a>
-          <a class="nav-link" href="../vue/AccountManagement.php" id="navbar-lien">Accounts\' management</a>';
+        echo '<a class="nav-link" href="../vue/addProject.php" id="navbar-lien">Add a project</a>
+        <a class="nav-link" href="../vue/projectsFinished.php" id="navbar-lien">Projects\' archive</a>
+        <a class="nav-link" href="../vue/tasksFinished.php" id="navbar-lien">Tasks\' archive</a>
+        <a class="nav-link" href="../vue/TeamManagement.php" id="navbar-lien">Teams\' management</a>
+        <a class="nav-link" href="../vue/AccountManagement.php" id="navbar-lien">Accounts\' management</a>';
       }
 
 
