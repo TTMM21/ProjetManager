@@ -5,6 +5,7 @@
 include "../lib/NavBar.php";
 include "../lib/lib.php";
 include '../controle/lists/getTeamMember.php';
+include '../controle/lists/getTeamsListCtrl.php';
 include '../lib/lists/getMemberListTeam.php';
 
 $TeamID = $_GET['Team'];
@@ -40,6 +41,28 @@ if ($_SESSION['langues'] == "Français") {
             <p>Team member remouv: <?php getTeamsListMemberCrl($TeamID); ?></p>
             <input type="submit" value="OK">
         </form>
+      </div>
+      <div class="card-body">
+        <div style="margin: auto 10% auto 10%">
+          <?php
+            echo "<ul class='list-group'>";
+              $accounts = getTeamsMemberList($TeamID);
+              $TeamsNames = getTeamsList($TeamID);
+              foreach ($TeamsNames as $TeamName) {
+                $name = $TeamName['nom'];
+              }
+
+            if ($_SESSION['langues'] == "Français") {
+              echo "<li class='list-group-item' style='background-color: #ededed'><a href='../vue/TeamManagementAdd.php?Team=".$TeamID."' id='tableau_button'>Equipe: ".$name."</a></li>";
+            } else {
+              echo "<li class='list-group-item' style='background-color: #ededed'><a href='../vue/TeamManagementAdd.php?Team=".$TeamID."' id='tableau_button'>Team: ".$name."</a></li>";
+            }
+
+            foreach ($accounts as $a) {
+              echo "<li class='list-group-item' style='padding-left: 60px'>".$a['prenom'].' '.$a['nom']."</li>";
+            }
+          ?>
+        </div>
       </div>
     </div>
   </div>

@@ -17,7 +17,6 @@ function getTeamsListMemberCrl($name) {
     }
 }
 
-
 function getTeamsListNotMemberCrl($name) {
     $TeamsMemberList = getTeamsNotMemberList($name);
     if($TeamsMemberList != NULL){
@@ -27,7 +26,6 @@ function getTeamsListNotMemberCrl($name) {
             echo "<option value='".$TeamsMember['id_compte']."'>".$TeamsMember['nom']." ".$TeamsMember['prenom']."</option>";
         }
         echo '</select>';
-        
     }else{
         echo 'NULL';
     }

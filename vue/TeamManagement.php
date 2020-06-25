@@ -5,6 +5,7 @@
 include "../lib/NavBar.php";
 include "../lib/lib.php";
 include '../controle/lists/getTeamsListCtrl.php';
+include '../lib/lists/getMemberListTeam.php';
 
 //Put the correct header according to the user's language
 if ($_SESSION['langues'] == "Français") {
