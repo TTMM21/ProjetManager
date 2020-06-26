@@ -9,6 +9,16 @@ function getAccountsListCtrl() {
   }else{
     $malvoyant = "id ='lien'";
   }  
+  if ($_SESSION['malvoyant'] == "1") {
+    $malvoyant2 = "class='btn btnInactifMal'";
+  }else{
+    $malvoyant2 = "class='btn btnInactif'";
+  }  
+  if ($_SESSION['malvoyant'] == "1") {
+    $malvoyant3 = "class='btn btnActifMal'";
+  }else{
+    $malvoyant3 = "class='btn btnActif'";
+  }  
   echo "<table class='table table-striped table-hover' style='background-color: white'>";
   echo "<thead>";
   echo "<tr>";
@@ -30,15 +40,15 @@ function getAccountsListCtrl() {
     echo "<td><a ".$malvoyant." href='../vue/utilisateur.php?id_compte=".$a['id_compte']."'>".$a['prenom'].'</a></td>';
     if ($a['actif'] === 1) {
       if ($_SESSION['langues'] == "Français") {
-        echo "<td><a ".$malvoyant." href='../controle/accountDeactivation.php?id_compte=".$a['id_compte']."' class='btn btnActif' title='Désactiver le profil'></a></td>";
+        echo "<td><a  href='../controle/accountDeactivation.php?id_compte=".$a['id_compte']."' ".$malvoyant3." title='Désactiver le profil'></a></td>";
       } else {
-        echo "<td><a ".$malvoyant." href='../controle/accountDeactivation.php?id_compte=".$a['id_compte']."' class='btn btnActif' title='Deactivate the profile'></a></td>";
+        echo "<td><a  href='../controle/accountDeactivation.php?id_compte=".$a['id_compte']."' ".$malvoyant3." title='Deactivate the profile'></a></td>";
       }
     } else {
       if ($_SESSION['langues'] == "Français") {
-        echo "<td><a ".$malvoyant." href='../controle/accountActivation.php?id_compte=".$a['id_compte']."' class='btn btnInactif' title='Activer le profil'></a></td>";
+        echo "<td><a href='../controle/accountActivation.php?id_compte=".$a['id_compte']."' ".$malvoyant2." title='Activer le profil'></a></td>";
       } else {
-        echo "<td><a ".$malvoyant." href='../controle/accountActivation.php?id_compte=".$a['id_compte']."' class='btn btnInactif' title='Activate the profile'></a></td>";
+        echo "<td><a href='../controle/accountActivation.php?id_compte=".$a['id_compte']."' ".$malvoyant2." title='Activate the profile'></a></td>";
       }
     }
     echo "<td><a ".$malvoyant." href='../vue/modifUtilisateur.php?id_compte=".$a['id_compte']."' class='btnLien'>";

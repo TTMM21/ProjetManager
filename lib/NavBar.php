@@ -42,7 +42,7 @@ if ($_SESSION['mobile'] = 0){
           }
 
         if(($_SESSION["statuts"] == "Administrateur" || $_SESSION["statuts"] == "Client" || $_SESSION["statuts"] == "Employé") && $_SESSION["langues"] == "English"){
-            echo '<a class="nav-link" href="../vue/Menu.php" '.$malvoyant.'>Homepage</a>';
+            echo '<a class="nav-link" href="../vue/index.php" '.$malvoyant.'>Homepage</a>';
         }
 
 
@@ -60,7 +60,7 @@ if ($_SESSION['mobile'] = 0){
             <a class="nav-link" href="../vue/projectsFinished.php" '.$malvoyant.'>Projects\' archive</a>
             <a class="nav-link" href="../vue/tasksFinished.php" '.$malvoyant.'>Tasks\' archive</a>
             <a class="nav-link" href="../vue/TeamManagement.php" '.$malvoyant.'>Teams\' management</a>
-            <a class="nav-link" href="../vue/AccountsManagement.php" '.$malvoyant.'>Accounts\' management</a>';
+            <a class="nav-link" href="../vue/AccountManagement.php" '.$malvoyant.'>Accounts\' management</a>';
         }
 
         if(($_SESSION["statuts"] == "Administrateur" || $_SESSION["statuts"] == "Client" || $_SESSION["statuts"] == "Employé") && $_SESSION["langues"] == "Français"){

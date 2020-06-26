@@ -10,7 +10,16 @@ function getTeamsListCtrl() {
   }else{
     $malvoyant = "id ='lien'";
   }
-
+  if ($_SESSION['malvoyant'] == "1") {
+    $malvoyant2 = "class='btn btnInactifMal'";
+  }else{
+    $malvoyant2 = "class='btn btnInactif'";
+  }  
+  if ($_SESSION['malvoyant'] == "1") {
+    $malvoyant3 = "class='btn btnActifMal'";
+  }else{
+    $malvoyant3 = "class='btn btnActif'";
+  } 
   for ($i=1; $i <= $countList ; $i++) {
     $accounts = getTeamsMemberList($i);
     $TeamsNames = getTeamsList($i);
@@ -20,21 +29,19 @@ function getTeamsListCtrl() {
       if ($_SESSION['langues'] == "Français") {
         echo "<li class='list-group-item' style='background-color: #ededed'><a ".$malvoyant." href='../vue/TeamManagementAdd.php?Team=".$id."' id='tableau_button'>Equipe: ".$name."</a>";
         if ($TeamName['actif'] === 1) {
-          if ($_SESSION['langues'] == "Français") {
-            echo "<a href='..\controle\TeamDeativation.php?id_equipe=".$id."' id='btnActifEquipe' class='btn btnActif' title='Désactiver le profil'></a></li>";
-          } else {
-            echo "<a href='..\controle\TeamDeativation.php?id_equipe=".$id."' id='btnActifEquipe' class='btn btnActif' title='Deactivate the profile'></a></li>";
-          }
+            echo "<a href='..\controle\TeamDeativation.php?id_equipe=".$id."' id='btnActifEquipe' ".$malvoyant3." title='Désactiver le profil'></a></li>";
         } else {
-          if ($_SESSION['langues'] == "Français") {
-            echo "<a href='..\controle\TeamActivation.php?id_equipe=".$id."' id='btnActifEquipe' class='btn btnInactif' title='Activer le profil'></a></li>";
-          } else {
-            echo "<a href='..\controle\TeamActivation.php?id_equipe=".$id."' id='btnActifEquipe' class='btn btnInactif' title='Activate the profile'></a></li>";
-          }
+            echo "<a href='..\controle\TeamActivation.php?id_equipe=".$id."' id='btnActifEquipe' ".$malvoyant2." title='Activer le profil'></a></li>";
         }
       } else {
-        echo "<li class='list-group-item' style='background-color: #ededed'><a ".$malvoyant." href='../vue/TeamManagementAdd.php?Team=".$id."' id='tableau_button'>Team: ".$name."</a></li>";
+        echo "<li class='list-group-item' style='background-color: #ededed'><a ".$malvoyant." href='../vue/TeamManagementAdd.php?Team=".$id."' id='tableau_button'>Team: ".$name."</a>";
+        if ($TeamName['actif'] === 1) {
+            echo "<a href='..\controle\TeamDeativation.php?id_equipe=".$id."' id='btnActifEquipe' ".$malvoyant3." title='Deactivate the profile'></a></li>";
+        } else {
+            echo "<a href='..\controle\TeamActivation.php?id_equipe=".$id."' id='btnActifEquipe' ".$malvoyant2." title='Activate the profile'></a></li>";
+        }
       }
+      
     }
     
     foreach ($accounts as $a) {
