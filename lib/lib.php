@@ -38,7 +38,6 @@ function Connect(){
 
 //Display erreor message function
 function ErreurMSG($MSG){
-    session_start();
     if ($_SESSION["langues"] == "Français"){
         $HeadErreur = "Erreur";
     }elseif ($_SESSION["langues"] == "English"){

@@ -23,7 +23,7 @@ if ($_SESSION['langues'] == "Français") {
 
 <button type="button" class="btn btn-dark" onclick="location.href='TeamAdd.php'" title="Cliquer pour ajouter une équipe" style="float: right; margin-right: 30px">
     <?php if ($_SESSION['langues'] == 'Français'): ?>
-        <u>Ajouter un equipe</u>
+        <u>Ajouter une équipe</u>
     <?php endif; ?>
     <?php if ($_SESSION['langues'] == 'English'): ?>
         <u>Add an Team</u>

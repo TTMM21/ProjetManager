@@ -11,6 +11,8 @@ if ($langue == "Français") {
   render('header', ['title' => 'Concept&Co | Login']);
 }
 
+$_SESSION["langues"] = $langue;
+
 function random($nbr) {
     $chn = '';
     for ($i=1;$i<=$nbr;$i++)
@@ -20,34 +22,33 @@ function random($nbr) {
     
 //Check if there is an user with this email firstname and lastname
 $login = $_POST['LOGIN-MAIL'];
-echo $login;
 $firstname = $_POST['LOGIN-PRENOM'];
-echo $firstname;
 $lastname = $_POST['LOGIN-NOM'];
-echo $lastname;
-$connection = Connect();
 $sql = "SELECT * FROM comptes WHERE email = '".$login."' AND  nom = '".$lastname."' AND  prenom = '".$firstname."';";
-$result = $connection->prepare($sql);
+$connection = Connect();
+$result = execQuery($connection, $sql);
 $rows = $result->fetchall();
 foreach($rows as $row) {
-    echo $row['mdp'];
+    $user_exists = 1;
+    $actif = $row['actif'];
+    $iduser = $row['id_compte'];
 }
-
-$user_exists = 1;
 if ($user_exists === 1) {
      //set variable
     $erreur = "faux";
-    $rd = random(20);
+    $rd = random(30);
     //Check if the user's account is activated
     if ($actif === 1) {
-        $sql2 = "UPDATE `comptes` SET `actif`= 0, `mdp`= $rd  WHERE id_compte = $iduser";
-        $result2 = $connection2->query($sql2);
+        $sql = "UPDATE `comptes` SET `actif`= '0', `mdp`= '".$rd."'  WHERE id_compte = '".$iduser."';";
+        $connection = Connect();
+        $result = execQuery($connection, $sql);
     } else { //If the user's account is deactivated
         if ($langue == 'Français') {
             ErreurMSG('Votre compte est désactivé. Contactez un administrateur pour l\'activer');
         } elseif ($langue == 'English') {
             ErreurMSG('Your account is deactivated. Contact an administrator to activate it');
         }
+        header("Location: ../vue/login.php");
     } 
 
 } else { //If any user have the combinaison email and password
@@ -69,7 +70,7 @@ if ($user_exists === 1) {
     <?php if ($langue == "English"): ?>
         <h1 id="LOGIN-TEXT">Success</h1>
     <?php endif; 
-    echo "<p src=CreateNewPassword.php/$rd>Clique ici pour changer de mdp$rd</p>"
+    echo "<a id='login-lien' href=CreateNewPassword.php?id=$rd><p >Clique ici pour changer de mdp</p></a>"
     ?>
 <?php endif; ?>
 <?php if($erreur == "vrai"): ?>
