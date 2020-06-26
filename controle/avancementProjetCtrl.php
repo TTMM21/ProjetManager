@@ -13,7 +13,7 @@ switch ($_POST['avancement']) {
     case "fini":
         projetFini();
         break;
-    case "en retard":
+    case "retard":
         projetEnRetard();
         break;
 }
