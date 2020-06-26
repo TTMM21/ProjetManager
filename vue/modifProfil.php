@@ -87,10 +87,12 @@ render('header', ['title' => 'Concept&Co | Modification d\'un compte']); //Gives
                             <label for="mdp2" style="color: white"><b>Confirmation du mot de passe *</b></label>
                             <input type="password" name="mdp2" class="form-control" required value="<?= $data['mdp'] ?>">
                         </div>
-                        <div class="form-group">
-                            <label for="id_statuts" style="color: white"><b>Statut *</b></label>
-                            <?php getStatutsListCtrl($data['id_statuts']) ?>
-                        </div>
+                        <?php if ($_SESSION['statuts'] == 'Administrateur'): ?>
+                            <div class="form-group">
+                                <label for="id_statuts" style="color: white"><b>Statut *</b></label>
+                                <?php getStatutsListCtrl($data['id_statuts']) ?>
+                            </div>
+                        <?php endif; ?>
                         <div class="form-group">
                             <label for="id_equipes" style="color: white"><b>Equipe en charge *</b></label>
                             <?php getTeamsNameListCtrl($data['id_equipes']) ?>
@@ -118,10 +120,12 @@ render('header', ['title' => 'Concept&Co | Modification d\'un compte']); //Gives
                             <label for="mdp2" style="color: white"><b>Password confirmation *</b></label>
                             <input type="password" name="mdp2" class="form-control" required value="<?= $data['mdp'] ?>">
                         </div>
-                        <div class="form-group">
-                            <label for="id_statuts" style="color: white"><b>Statut *</b></label>
-                            <?php getStatutsListCtrl($data['id_statuts']) ?>
-                        </div>
+                        <?php if ($_SESSION['statuts'] == 'Administrateur'): ?>
+                            <div class="form-group">
+                                <label for="id_statuts" style="color: white"><b>Statut *</b></label>
+                                <?php getStatutsListCtrl($data['id_statuts']) ?>
+                            </div>
+                        <?php endif; ?>
                         <div class="form-group">
                             <label for="id_equipes" style="color: white"><b>Equipe en charge *</b></label>
                             <?php getTeamsNameListCtrl($data['id_equipes']) ?>

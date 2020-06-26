@@ -23,14 +23,14 @@ if ($_SESSION['langues'] == "Français") {
 
 <button type="button" class="btn btn-dark" onclick="location.href='TeamAdd.php'" title="Cliquer pour ajouter une équipe" style="float: right; margin-right: 30px">
     <?php if ($_SESSION['langues'] == 'Français'): ?>
-        Ajouter un equipe
+        <u>Ajouter un equipe</u>
     <?php endif; ?>
     <?php if ($_SESSION['langues'] == 'English'): ?>
-        Add an Team
+        <u>Add an Team</u>
     <?php endif; ?>
 </button>
 
-<a href="TeamAdd.php" class="btnLien" <?php echo $malvoyant; ?> style="float: right; margin-right: 30px">
+<a class="btnLien" id ="lien" style="float: right; margin-right: 30px">
 <div class="container" style="margin: 10% auto auto auto">
   <div class="card" style="background-color: rgba(0, 0, 20, 0.5)">
     <div class="card-header" style="color: white">

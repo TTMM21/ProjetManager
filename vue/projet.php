@@ -65,12 +65,12 @@ render('header', ['title' => 'Concept&Co | '.$data["nom"].'']); //Gives the head
 
 <!--Button which opens the modal-->
 <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#statusModal" title="Cliquer pour changer l'avancement du projet" style="float: right; margin-right: 30px">
-<?php if ($_SESSION['langues'] == 'Français'): ?>
-    Avancement
-<?php endif; ?>
-<?php if ($_SESSION['langues'] == 'English'): ?>
-    Status
-<?php endif; ?>
+    <?php if ($_SESSION['langues'] == 'Français'): ?>
+        Avancement
+    <?php endif; ?>
+    <?php if ($_SESSION['langues'] == 'English'): ?>
+        Status
+    <?php endif; ?>
 </button>
 
 <!--Display an alert if a task has been added-->

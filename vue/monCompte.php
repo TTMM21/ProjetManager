@@ -38,24 +38,24 @@ if ($_SESSION['langues'] == "Français") {
 }
 ?>
 <!--Button which links to the page modifProfil.php-->
-<a href="modifProfil.php?id_compte=<?= $_SESSION['id'] ?>" class="btnLien"  style="float: right; margin-right: 30px">
+<button type="button" class="btn btn-dark" onclick="location.href='modifProfil.php?id_compte=<?= $_SESSION['id'] ?>'" title="Modifier les informations" style="float: right; margin-right: 30px">
     <?php if ($_SESSION['langues'] == 'Français'): ?>
-        Modifier
+      Modifier
     <?php endif; ?>
     <?php if ($_SESSION['langues'] == 'English'): ?>
-        Modify
+      Modify
     <?php endif; ?>
-</a>
+</button>
 
 <!--Button which links to the page accountDeactivation.php-->
-<a href="../controle/accountDeactivation.php?id_compte=<?= $_SESSION['id'] ?>" class="btnLien"  style="float: right; margin-right: 30px">
+<button type="button" class="btn btn-dark" onclick="location.href='../controle/accountDeactivation.php?id_compte=<?= $_SESSION['id'] ?>'" title="Modifier les informations" style="float: right; margin-right: 30px">
     <?php if ($_SESSION['langues'] == 'Français'): ?>
-        Désactiver le compte
+      Désactiver le compte
     <?php endif; ?>
     <?php if ($_SESSION['langues'] == 'English'): ?>
-        Deactivate the account
+      Deactivate the account
     <?php endif; ?>
-</a>
+</button>
 
 <div class="container" style="margin: 10% auto auto auto;">
     <div class="card" style="background-color:rgba(0, 0, 20, 0.5);">
