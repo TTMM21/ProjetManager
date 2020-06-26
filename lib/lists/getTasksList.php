@@ -15,13 +15,6 @@ function getAllHistoriqueProjectsList($id_comptes) {
   return $result;
 }
 
-function getTasksListByTache($id_taches) {
-  $req = "SELECT * FROM taches WHERE id_taches = $id_taches ORDER BY date_de_fin";
-  $connection = Connect();
-  $result = execQuery($connection, $req);
-  return $result;
-}
-
 /*Give all the tasks that we need, only the finished tasks*/
 function getTasksFinishedList($id_comptes) {
   $req = "SELECT * FROM taches WHERE id_comptes = $id_comptes AND id_avancements = 2 ORDER BY date_de_fin";
