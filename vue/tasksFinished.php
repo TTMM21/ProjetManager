@@ -26,7 +26,7 @@ if ($_SESSION['langues'] == "Français") {
     </div>
     <div class="card-body">
       <div style="margin: auto 10% auto 10%">
-        <?php getTasksFinishedListCtrl($_SESSION['id']) ?>
+        <?php getTasksListCtrl($_SESSION['id']) ?>
       </div>
     </div>
   </div>
