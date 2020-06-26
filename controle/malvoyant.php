@@ -5,10 +5,10 @@ echo $_SESSION["id"];
 $id = $_SESSION["id"];
 $pdo = Connect();
 
-$sql = "UPDATE comptes SET id_langues = '1' WHERE id_compte=$id";
+$sql = "UPDATE comptes SET malvoyant = '1' WHERE id_compte=$id";
 execQuery($pdo, $sql);
 
-$_SESSION["langues"] = "Français";
+$_SESSION["malvoyant"] = "1";
 
 header("Location: ../vue/index.php");
 ?>

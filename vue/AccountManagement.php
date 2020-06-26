@@ -19,14 +19,15 @@ if ($_SESSION['malvoyant'] == "1") {
 }  
 ?>
 <!--Button which links to the page addUser.php-->
-<?php echo '<a '.$malvoyant.' href="addUser.php" class="btnLien"  style="float: right; margin-right: 30px">'?>
+
+<button type="button" class="btn btn-dark" onclick="location.href='addUser.php'" title="Cliquer pour ajouter une équipe" style="float: right; margin-right: 30px">
     <?php if ($_SESSION['langues'] == 'Français'): ?>
-        Ajouter un utilisateur
+      Ajouter un utilisateur
     <?php endif; ?>
     <?php if ($_SESSION['langues'] == 'English'): ?>
-        Add an user
+      Add an user
     <?php endif; ?>
-</a>
+</button>
 
 <!--Tab for the accounts' management-->
 <div class="container" style="margin: 10% auto auto auto">

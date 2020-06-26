@@ -1,13 +1,14 @@
 <?php
+session_start();
 require '../lib/lib.php';
-
-/*$id = $_GET['id_compte'];
+echo $_SESSION["id"];
+$id = $_SESSION["id"];
 $pdo = Connect();
 
-//Change the account's status to 1 (activate)
-$sql = "UPDATE comptes SET actif = '1' WHERE id_compte=$id";
+$sql = "UPDATE comptes SET id_langues = '2' WHERE id_compte=$id";
 execQuery($pdo, $sql);
 
+$_SESSION["langues"] = "English";
 
-header("Location: ../vue/accountManagement.php");*/
+header("Location: ../vue/index.php");
 ?>

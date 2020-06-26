@@ -25,4 +25,4 @@ function getAllHistoriqueProjectsList($id_comptes) {
   }
 
 
-?>
+?> 

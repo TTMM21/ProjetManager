@@ -13,6 +13,12 @@ if (isset($_SESSION['malvoyant'])) {
   }else{
     $malvoyant = "id ='navbar-lien'";
   }
+  if ($_SESSION['malvoyant'] == "1") {
+    $malvoyant2 = "id ='navbar-lien-malvoyant-2'";
+
+  }else{
+    $malvoyant2 = "id ='navbar-lien-2'";
+  }
 }else{
   $nav = "id ='nav-vide'";
 }
@@ -58,27 +64,35 @@ if ($_SESSION['mobile'] = 0){
         }
 
         if(($_SESSION["statuts"] == "Administrateur" || $_SESSION["statuts"] == "Client" || $_SESSION["statuts"] == "Employé") && $_SESSION["langues"] == "Français"){
-          echo '<a class="nav-link" href="../vue/compte.php" '.$malvoyant.'>Mon Compte</a>
+          echo '<a class="nav-link" href="../vue/moncompte.php" '.$malvoyant.'>Mon Compte</a>
           <a class="nav-link" href="../controle/logout.php" '.$malvoyant.'>Déconnexion</a>
           ';
         }
 
         if(($_SESSION["statuts"] == "Administrateur" || $_SESSION["statuts"] == "Client" || $_SESSION["statuts"] == "Employé") && $_SESSION["langues"] == "English"){
-          echo '<a class="nav-link" href="../vue/compte.php" '.$malvoyant.'>My account</a>
+          echo '<a class="nav-link" href="../vue/moncompte.php" '.$malvoyant.'>My account</a>
           <a class="nav-link" href="../controle/logout.php" '.$malvoyant.'>Logout</a>';
         }
         if ($_SESSION['langues'] == "Français") {
-          echo "<td><a ".$malvoyant." href='../controle/English.php' class='btn btnEn' title='Désactiver le profil'></a></td>";
+          echo "<td><a class='nav-link' ".$malvoyant2." href='../controle/English.php' title=''>Anglais</a></td>";
         } else {
-          echo "<td><a ".$malvoyant." href='../controle/French.php' class='btn btnEn' title='Deactivate the profile'></a></td>";
+          echo "<td><a class='nav-link' ".$malvoyant2." href='../controle/French.php' title=''>Francais</a></td>";
+        }
+        if ($_SESSION['langues'] == "Français") {
+          if ($_SESSION['malvoyant'] == "0") {
+            echo "<td><a class='nav-link' ".$malvoyant2." href='../controle/malvoyant.php' title=''>Malvoyant</a></td>";
+          } else {
+            echo "<td><a class='nav-link' ".$malvoyant2." href='../controle/nonmalvoyant.php' title=''>Non malvoyant</a></td>";
+          }
+        } else {
+          if ($_SESSION['malvoyant'] == "0") {
+            echo "<td><a class='nav-link' ".$malvoyant2." href='../controle/malvoyant.php' title=''>Visually impaired</a></td>";
+          } else {
+            echo "<td><a class='nav-link' ".$malvoyant2." href='../controle/nonmalvoyant.php' title=''>No visually impaired</a></td>";
+          }
         }
       }
-    }
-
-  /** connection verification **/
-  if((isset($_SESSION["mail"])==false) && ($URL == "login")){
-      header('Location: ../vue/login.php');
-      exit();
+  }else{
   }
 ?>
 </nav>
