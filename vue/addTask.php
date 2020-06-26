@@ -6,6 +6,7 @@ include '../lib/lib.php';
 include "../lib/NavBar.php";
 require '../vendor/autoload.php';
 require '../controle/lists/getAccountsListCtrl.php';
+require '..\lib\lists\getHistoriqueProjet.php';
 
 //Objets needed
 use \App\Task;
@@ -34,6 +35,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $task = new Task();
     $task = $tasks->hydrateTask(new Task(), $data);
     $tasks->createTask($task);
+
+    SetHistoriqueProjects($_GET['id_projet'],$data['id_comptes']);
+
     header("Location: projet.php?id_projet=".$_GET['id_projet']."&add=1");
     exit();
 }

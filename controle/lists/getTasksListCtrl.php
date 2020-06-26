@@ -1,8 +1,6 @@
 <?php
 include '../lib/lists/getTasksList.php';
 
-
-
 /*Give the projects in the tab, page index.php*/
 function getTasksListCtrl($id_comptes) {
   $tasks = getTasksList($id_comptes);
@@ -39,7 +37,8 @@ function getTasksListCtrl($id_comptes) {
 
 /*Give the projects in the tab, page tasksFinished.php*/
 function getTasksFinishedListCtrl($id_comptes) {
-  $tasks = getTasksFinishedList($id_comptes);
+  $tasksID = getAllHistoriqueProjectsList($id_comptes);
+
   if ($_SESSION['malvoyant'] == "1") {
     $malvoyant = "id ='lien-malvoyant'";
   }else{
@@ -60,15 +59,23 @@ function getTasksFinishedListCtrl($id_comptes) {
   echo "</tr>";
   echo "</thead>";
   echo "<tbody>";
-  foreach ($tasks as $t) {
-    echo "<tr>";
-    echo "<td><a ".$malvoyant." href='../vue/tache.php?id_tache=".$t['id_taches']."'>".$t['nom']."</a></td>";
-    echo "<td><a ".$malvoyant." href='../vue/tache.php?id_tache=".$t['id_taches']."'>".getProjectName($t['id_projets'])."</a></td>";
-    echo "<td><a ".$malvoyant." href='../vue/tache.php?id_tache=".$t['id_taches']."'>".$t['date_de_fin']."</a></td>";
+  foreach ($tasksID as $tID) {
+    dd($tID['id_taches']);
+    dd($tID['id_projet']);
+    $tasks = getTasksListByTache($tID['id_taches']);
+    
+    foreach ($tasks as $t) {
+      echo "<tr>";
+      echo "<td><a ".$malvoyant." href='../vue/tache.php?id_tache=".$t['id_taches']."'>".$t['nom']."</a></td>";
+      echo "<td><a ".$malvoyant." href='../vue/tache.php?id_tache=".$t['id_taches']."'>".getProjectName($tID['id_projet'])."</a></td>";
+      echo "<td><a ".$malvoyant." href='../vue/tache.php?id_tache=".$t['id_taches']."'>".$t['date_de_fin']."</a></td>";
+      echo "</tr>";
+    }
+    echo "</tbody>";
+    echo "</table>";
   }
-  echo "</tbody>";
-  echo "</table>";
-}
+
+}   
 
 
 /*Give a project's name thanks to its id*/
@@ -78,4 +85,5 @@ function getProjectName($id) {
   $result = execQuery($connection, $req)->fetch();
   return $result['0'];
 }
+
 ?>
