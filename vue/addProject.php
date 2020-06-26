@@ -5,6 +5,7 @@
 include '../lib/lib.php';
 include "../lib/NavBar.php";
 require '../vendor/autoload.php';
+require '..\controle\lists\getTeamsListCtrl.php';
 
 //Objets needed
 use \App\Project;
@@ -74,12 +75,7 @@ render('header', ['title' => 'Concept&Co | Ajout d\'un projet']); //Gives the he
                         </div>
                         <div class="form-group">
                             <label for="id_equipes" style="color: white"><b>Equipe en charge *</b></label>
-                            <select class="form-control" required name="id_equipes">
-                                <option value="1">Equipe 1</option>
-                                <option value="2">Equipe 2</option>
-                                <option value="3">Equipe 3</option>
-                                <option value="4">Equipe 4</option>
-                            </select>
+                                <?php getTeamsNameListCtrl() ?>
                         </div>
                         </div>
                         <button type="submit" class="btn btn-success"><b>VALIDER</b></button>
@@ -103,12 +99,7 @@ render('header', ['title' => 'Concept&Co | Ajout d\'un projet']); //Gives the he
                         </div>
                         <div class="form-group">
                             <label for="id_equipes" style="color: white"><b>Team in charges *</b></label>
-                            <select class="form-control" required name="id_equipes">
-                                <option value="1">Equipe 1</option>
-                                <option value="2">Equipe 2</option>
-                                <option value="3">Equipe 3</option>
-                                <option value="4">Equipe 4</option>
-                            </select>
+                                <?php getTeamsNameListCtrl() ?>
                         </div>
                         <button type="submit" class="btn btn-success"><b>SUBMIT</b></button>
                     <?php endif; ?>
