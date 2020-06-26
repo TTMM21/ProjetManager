@@ -44,15 +44,13 @@ function getTeamsListCtrl() {
 }
 
 /*Give the select for the teams (in the form), page modifUtilisateur.php + addUser.php*/
-function getTeamsNameListCtrl($id) {
+function getTeamsNameListCtrl() {
   $team = getTeamsListUser();
   echo "<select class='form-control' required name='id_equipes'>";
   foreach ($team as $t) {
-      if ($id === $t['id_equipes']) {
-          echo "<option value='".$t["id_equipes"]."' selected>".$t["nom"]."</option>";
-      } else {
+    if($t["actif"] == 1){
           echo "<option value='".$t["id_equipes"]."'>".$t["nom"]."</option>";
-      }
+        }
   }
   echo "</select>";
 }
